@@ -9,12 +9,10 @@ Final Project is a Python project that is submitted as one of the requirements f
 
 googletrans==2.4.0
 
-
 ```bash
 
 pip install autopep8
 pip install coverage
-
 pip install nltk
 pip install profanity-check
 pip install langdetect
@@ -34,7 +32,6 @@ import os
 import os.path
 import glob
 import re
-
 import json
 import time
 
@@ -64,14 +61,21 @@ import requests, uuid
 
 ```python
 
-1. artists_list() # returns a list with the unique set of artists that are associated with the lyrics text files 
+1. artists_list() # returns a list with the unique set of artists that are associated with the 
+                    lyrics text files 
 
-2. raw_filenames_list() # returns a list with all the filenames of the lyrics text files of the folder named “Lyrics”
+2. raw_filenames_list() # returns a list with all the filenames of the lyrics text files of the 
+                          folder named “Lyrics”
 
-3. artist_s_songs_list(str)  # returns a list with all the filenames of the the lyrics text files that are associated with the artist that is passed as a string (str) to the function
-	i.e. artist_s_songs_list("The Beatles") # returns ['860~Get Back~The Beatles.txt', '629~From Me to You~The Beatles.txt']
+3. artist_s_songs_list(str)  # returns a list with all the filenames of the the lyrics text files 
+                               that are associated with the artist that is passed as a string (str) 
+			       to the function
+	i.e. artist_s_songs_list("The Beatles") # returns ['860~Get Back~The Beatles.txt', 
+	'629~From Me to You~The Beatles.txt']
 
-4. artist_s_cleaned_songs_list(str)  # returns a list with all the filenames of the the “cleaned” lyrics text files that are associated with the artist that is passed as a string (str) to the function
+4. artist_s_cleaned_songs_list(str)  # returns a list with all the filenames of the the “cleaned” 
+                                       lyrics text files that are associated with the artist that 
+				       is passed as a string (str) to the function
 	i.e. artist_s_cleaned_songs_list("The Beatles") # returns ['cleaned_860~Get Back~The Beatles.txt',
  'cleaned_629~From Me to You~The Beatles.txt']
 
@@ -80,7 +84,8 @@ import requests, uuid
 ```
 
 ## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would 
+like to change.
 
 Please make sure to update tests as appropriate.
 
