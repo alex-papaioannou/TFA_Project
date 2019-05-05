@@ -1,0 +1,12 @@
+langdetect==1.0.7
+pandas==0.24.2
+profanity_check==1.0.2
+requests==2.21.0
+googletrans==2.4.0
+nltk==3.4
+matplotlib==3.0.3
+seaborn==0.9.0
+numpy==1.16.2
+pep8==1.7.1
+pipreqs==0.4.9
+coverage==4.5.3
