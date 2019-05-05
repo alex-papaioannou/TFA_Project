@@ -1,5 +1,4 @@
-# TFA_Project
-Tools for Analytics Final Project
+# IEOR 4501 - TOOLS FOR ANALYTICS
 # Final Project
 
 Final Project is a Python project that is submitted as one of the requirements for the fullfillment of the Columbia University IEOR department’s course named “IEOR 4501 - TOOLS FOR ANALYTICS”. The authors of this project are Papaioannou Alexandros Anastasios and Shipley Kyle
