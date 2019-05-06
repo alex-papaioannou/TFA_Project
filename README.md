@@ -64,15 +64,25 @@ import requests, uuid
 1. artists_list() # returns a list with the unique set of artists that are associated with the 
                     lyrics text files 
 
+```
+
+```bash
+jdhf
+
+```
+
+```python
 2. raw_filenames_list() # returns a list with all the filenames of the lyrics text files of the 
                           folder named “Lyrics”
-
+```
+```python
 3. artist_s_songs_list(str)  # returns a list with all the filenames of the the lyrics text files 
                                that are associated with the artist that is passed as a string (str) 
 			       to the function
 i.e. artist_s_songs_list('The Beatles') # returns ['860~Get Back~The Beatles.txt', 
 '629~From Me to You~The Beatles.txt']
-	
+```
+```python
 4. song_cleaning() # a) returns a directory under the current (working) directory named "Cleaned_Songs"
 		     b) iterates through all the lyrics text files of the songs of all the artists of 
 		        the artists_list()
@@ -82,13 +92,15 @@ i.e. artist_s_songs_list('The Beatles') # returns ['860~Get Back~The Beatles.txt
 		        and it pastes the cleaned text of the lyrics in the text file 
 i.e. the use of that function is just song_cleaning() # no positional (*args) or keyword (**kwargs) 
      arguments needed
-
+```
+```python
 5. artist_s_cleaned_songs_list(str)  # returns a list with all the filenames of the the “cleaned” 
                                        lyrics text files that are associated with the artist that 
 				       is passed as a string (str) to the function
 i.e. artist_s_cleaned_songs_list('The Beatles') # returns ['cleaned_860~Get Back~The Beatles.txt',
 'cleaned_629~From Me to You~The Beatles.txt']
-
+```
+```python
 6. id_song_to_be_scored(song_to_be_scored) # returns the id number of the lyrics text file that is 
                                               named 'song_to_be_scored' and it is passed as a positional 
 					      argument -having the data type of a string (str)- to the 
@@ -99,7 +111,8 @@ i.e. artist_s_cleaned_songs_list('The Beatles') # returns ['cleaned_860~Get Back
 		r'(cleaned_)(?P<id>[\d\D]+)(~)(?P<artist_name>[\d\D]+)(~)(?P<song_title>[\d\D]+)(.txt)'
 
 i.e. id_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt') # returns '860'
-					    
+```
+```python
 7. artist_song_to_be_scored(song_to_be_scored) # returns the name of the artist of the song named 
 						  'song_to_be_scored' which is passed as a positional 
 					           argument -having the data type of a string (str)- to 
@@ -110,7 +123,8 @@ i.e. id_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt') # returns '860
 		r'(cleaned_)(?P<id>[\d\D]+)(~)(?P<artist_name>[\d\D]+)(~)(?P<song_title>[\d\D]+)(.txt)'
 
 i.e. artist_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt') # returns 'The Beatles'
-
+```
+```python
 8. title_song_to_be_scored(song_to_be_scored) # returns the title of the song named 'song_to_be_scored' 
 						 which is passed as a positional argument -having the data 
 						 type of a string (str)- to the function
@@ -120,14 +134,14 @@ i.e. artist_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt') # returns 
 		r'(cleaned_)(?P<id>[\d\D]+)(~)(?P<artist_name>[\d\D]+)(~)(?P<song_title>[\d\D]+)(.txt)'
 		
 i.e. title_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt') # returns 'Get Back'
-
+```
+```python
 9. profanity_score_min_max() # returns the minimum and maximum value of the profanity (kids_safe) scores based
                                on the scores of the lyrics text files we have been provided with (in the
 			       folder named “Lyrics”)
 			       
 		
-i.e. title_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt') # returns 'Get Back'
-					      
+i.e. title_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt') # returns 'Get Back'				      
 ```
 
 ## Contributing
