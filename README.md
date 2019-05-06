@@ -1,28 +1,66 @@
 # IEOR 4501 - TOOLS FOR ANALYTICS
 # Final Project
 
-Final Project is a Python project that is submitted as one of the requirements for the fullfillment of the Columbia University IEOR department’s course named “IEOR 4501 - TOOLS FOR ANALYTICS”. The authors of this project are Papaioannou Alexandros Anastasios and Shipley Kyle
+## Project Description 
 
-## Installation 
+Final Project is a Python project that is submitted as one of the requirements for the fullfillment of the Columbia University IEOR department’s course named “IEOR 4501 - TOOLS FOR ANALYTICS”. The authors of this project are:
 
-### Needed packages
+1) Papaioannou Alexandros Anastasios and 
+2) Shipley Kyle
 
-googletrans==2.4.0
+## Project Scope 
+
+We were given a set of text files which held music lyrics; each file held a different song’s lyrics. The scope of this project was to create a tool to categorize the songs based on their lyrics. 
+
+Our program constitutes a single python file (.py file) and it is executable as a single command. 
+### Input of the program
+The input to your command should be the path to the directory holding the song files. 
+### Output of the program
+The output of your command is a JSON object (sent to standard out, StdOut) that contains a list of characterizations; one for each song. Each characterization object has the listed dimensions (keys) and a values for how well the song fits into that dimension. 
+
+# Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
+The files of the project are the following: 
+
+1) main.py            , the executable code
+2) tests.py           , the unit testing code
+3) requirements.txt   , the packages that the projects requires to be installed for the code to be able to run
+4) README.md          , the current README file
+
+## Prerequisites
+
+What things you need to install the software and how to install them
+
+langdetect==1.0.7
+mstranslate==1.1
+mtranslate==1.6
+
+profanity_check==1.0.2
+requests==2.21.0
+nltk==3.4
+
+pipreqs==0.4.9
+coverage==4.5.3
+autopep8==1.4.4
+pep8==1.7.1
+
 
 ```bash
 
-pip install autopep8
-pip install coverage
-pip install nltk
-pip install profanity-check
 pip install langdetect
-pip install googletrans
+pip install mtranslate
+
+pip install profanity-check
 pip install requests
+pip install nltk
+
 pip install pipreqs
-
+pip install coverage
+pip install autopep8
+pip install pep8
 ```
-
-## Usage
 
 ### Environment setting
 
@@ -34,28 +72,24 @@ import glob
 import re
 import json
 import time
-
+import argparse
 from collections import defaultdict
 from collections import Counter
+import uuid
 
+from langdetect import detect
+from mtranslate import translate
+
+from profanity_check import predict, predict_prob
+import requests
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from nltk.corpus import stopwords
 import nltk.data
 nltk.downloader.download('vader_lexicon')
 nltk.downloader.download('stopwords')
-
-from profanity_check import predict, predict_prob
-# https://github.com/vzhou842/profanity-check
-
-import argparse
-
-from langdetect import detect
-
-from googletrans import Translator
-translator = Translator()
-
-import requests, uuid
 ```
+
+## Usage
 
 ### Functions usage
 
