@@ -157,9 +157,21 @@ i.e. title_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt')
 # returns the minimum and maximum value of the profanity (kids_safe) scores based on the scores of the 
 # lyrics text files we have been provided with (in the folder named “Lyrics”)
 			       
-i.e. title_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt') 
+i.e. the use of that function is just profanity_score_min_max() 
 
-# print(title_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt')) returns 'Get Back'				      
+# no positional (*args) or keyword (**kwargs) arguments needed			      
+```
+
+```python
+10. profanity_score(song_to_be_scored)
+
+# returns the normalized (based on the minimum and maximum value calculated of the sample space) profanity 
+# (kids_safe) score of the song named 'song_to_be_scored' which is passed as a positional argument 
+# -having the data type of a string (str)- to the function
+			       
+i.e. profanity_score('cleaned_860~Get Back~The Beatles.txt') 
+
+# print(title_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt')) returns ''				      
 ```
 
 ## Contributing
