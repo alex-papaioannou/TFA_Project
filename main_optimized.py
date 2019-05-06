@@ -61,48 +61,30 @@ import requests, uuid
 
 # import goslate
 
-# imports()
-
 # import_time = time.time()
 # print(import_time - start_time)
-
-
-# In[2]:
-
-
-# '222~All This Time Still Falling out of Love [Album Version]~Erasure.txt'.split(".txt")[0]
-
-#kss2170 05/04/19 changes:
-#Output of id of songs is not integers
-#Unittesting implemented
-#Merged all function calls into a main() function
-#JSON Outputting 1007 elements, need to find out why
-
-
-# In[5]:
-
 
 # %%time
 # cell_s_t = time.time()
     
-#     parser = argparse.ArgumentParser('Parses the given directory of lyrics')
-#     parser.add_argument('dir_given', help='Directory of the lyrics')
-#     args = parser.parse_args()
-#     dir_given = args.dir_given
+#parser = argparse.ArgumentParser('Parses the given directory of lyrics')
+#parser.add_argument('dir_given', help='Directory of the lyrics')
+#args = parser.parse_args()
+#dir_given = args.dir_given
 
-#Simulated 'Given' directory, needs to be changed to input from command line kss0416
-# dir_given = r'C:\Users\Kyle_Shipley\Documents\Columbia_Docs\IEOR 4501\ProjectTemp\TFA_Project-Alex2\TFA_Project-Alex\Lyrics'
+#def dir_given():
+#    return r'C:/Users/Kyle Shipley/Documents/Academic_Desktop/Columbia/4501/Project/Lyrics'
 
-#Need to change path below to start in lyrics directory kss0416
-# os.chdir(dir_given)
+def dir_given(test_var = 0):
+    try:
+        ret = dir_given_arg
+    except:
+        ret = test_var
+    return ret
 
-def dir_given():
-    return r'/home/kss2170/Lyrics_here/Lyrics'
-
-
-def artists_list()->list:
+def artists_list(*args)->list:
     artists_list_ = []
-    for raw_filename in os.listdir(dir_given()):
+    for raw_filename in os.listdir(dir_given(*args)):
         if raw_filename.endswith('.txt'):
             try:
                 artist_name = raw_filename.split("~")[1].split(".txt")[0]
@@ -112,33 +94,29 @@ def artists_list()->list:
                 pass
     return artists_list_
 
-# artists_list_ = artists_list()
-
-def raw_filenames_list()->list:
+def raw_filenames_list(*args)->list:
     raw_filenames_list_ = []
-    for raw_filename in os.listdir(dir_given()):
+    for raw_filename in os.listdir(dir_given(*args)):
         if raw_filename.endswith('.txt'):
             raw_filenames_list_.append(raw_filename)
     return raw_filenames_list_
 
-# raw_filenames_list_ = raw_filenames_list()
-
-def artist_s_songs_list(str)->list:
+def artist_s_songs_list(str, *args)->list:
     artist_s_songs_list_ = []
-    for raw_filename in raw_filenames_list():
+    for raw_filename in raw_filenames_list(*args):
         if str in raw_filename:
             artist_s_songs_list_.append(raw_filename)
     return artist_s_songs_list_
 
-def song_cleaning():
+def song_cleaning(*args):
     try:
-        os.mkdir(dir_given() + '/Cleaned_Songs')
+        os.mkdir(dir_given(*args) + '/Cleaned_Songs')
     except FileExistsError:  
         pass
     
-    for artist in artists_list():
-        for song in artist_s_songs_list(artist):
-            f = open(dir_given() + r'/' +  song, 'rb')
+    for artist in set(artists_list(*args)):
+        for song in artist_s_songs_list(artist, *args):
+            f = open(dir_given(*args) + r'/' +  song, 'rb')
             all_words = ''
             for sentence in f.readlines():
                 this_sentence = sentence.decode('utf-8')
@@ -148,90 +126,41 @@ def song_cleaning():
             #remove empty lines
             all_words = os.linesep.join([s for s in all_words.splitlines() if s])
             f.close()
-            f = open(os.path.join(dir_given() + '/Cleaned_Songs', 'cleaned_' + song ), "wb")
+            f = open(os.path.join(dir_given(*args) + '/Cleaned_Songs', 'cleaned_' + song ), "wb")
             f.write(all_words.encode('utf-8'))
             f.close()
     return
 
-# song_cleaning()
-
-def artist_s_cleaned_songs_list(str)->list:
+def artist_s_cleaned_songs_list(str, *args)->list:
     artist_s_cleaned_songs_list_ = []
-    for cleaned_raw_filename in os.listdir(dir_given() + '/Cleaned_Songs/'):
+    for cleaned_raw_filename in os.listdir(dir_given(*args) + '/Cleaned_Songs/'):
         if str in cleaned_raw_filename:
-#            if cleaned_raw_filename.endswith(str + '.txt') not in artist_s_cleaned_songs_list_:
             artist_s_cleaned_songs_list_.append(cleaned_raw_filename)
     return artist_s_cleaned_songs_list_
-
-# artist_s_cleaned_songs_list("The Beatles")
-
-# def song_translating(artists_list):
-#     for artist in set(artists_list):
-#         for song in artist_s_songs_list(artist):
-#             #Changed below to base on single given directory
-#             f = open(dir_given + r'/Cleaned_Songs/cleaned_' +  song, 'rb')
-#             all_words = ''
-#             cleaned_songs_directory = dir_given + "/Cleaned_Songs/"
-
-#             for sentence in f.readlines():
-#                 this_sentence = sentence.decode('utf-8')
-#                 try:
-#                     if translator.detect(this_sentence).lang == 'en':
-#                         all_words += this_sentence
-#                     else:
-#                         translation = translator.translate(this_sentence)
-#                         all_words += translation.text
-#                 except:
-#                     print('exception')
-#             f = open(cleaned_songs_directory + 'cleaned_' + song, 'wb')
-#             f.write(all_words.encode('utf-8'))
-#             f.close()
-#     return
-
-# song_translating(artists_list())
-            
+   
 def id_song_to_be_scored(song_to_be_scored):
-
-#    f = open(dir_given + '/Cleaned_Songs/' + song_to_be_scored , 'rb')
-#     cleaned_song_name = song_to_be_scored.split("cleaned_")[1].split("~")[1]
     id_song_to_be_scored = int(song_to_be_scored.split("cleaned_")[1].split("~")[0])
 
     return id_song_to_be_scored
 
-# a = id_song_to_be_scored('cleaned_688~I Wanna Be Loved~Buy This Song.txt')
-
-# print('id:', a)
-
 def artist_song_to_be_scored(song_to_be_scored):
-
-#    f = open(dir_given + '/Cleaned_Songs/' + song_to_be_scored , 'rb')
     artist_song_to_be_scored = song_to_be_scored.split("~")[1].split(".txt")[0]
     
     return artist_song_to_be_scored
 
-# b = artist_song_to_be_scored('cleaned_688~I Wanna Be Loved~Buy This Song.txt')
-
-# print('artist:', b)
-
 def title_song_to_be_scored(song_to_be_scored):
-
-#    f = open(dir_given + '/Cleaned_Songs/' + song_to_be_scored , 'rb')
     title_song_to_be_scored = song_to_be_scored.split("~")[2].split(".txt")[0]
     
     return title_song_to_be_scored
 
-# c = title_song_to_be_scored('cleaned_688~I Wanna Be Loved~Buy This Song.txt')
 
-# print('title:', c)
-
-def profanity_score_min_max():
-#     https://github.com/vzhou842/profanity-check
+def profanity_score_min_max(*args):
     profanity_score_list_ = []
-    for artist in set(artists_list()):
-        for song in artist_s_cleaned_songs_list(artist):
+    for artist in set(artists_list(*args)):
+        for song in artist_s_cleaned_songs_list(artist, *args):
             words_of_lyrics = []
             raw_text = "" 
-            f = open(dir_given() + '/Cleaned_Songs/' + song , 'rb')
+            f = open(dir_given(*args) + '/Cleaned_Songs/' + song , 'rb')
             for line in f.readlines():
                 this_line_wordlist = line.decode('utf-8').split()
                 for word in this_line_wordlist:
@@ -243,24 +172,18 @@ def profanity_score_min_max():
             profanity_check = predict_prob(song_lyrics_for_profanity_check_)
             profanity_score = 1-float(' '.join(map(str, profanity_check)))
             profanity_score_list_.append(profanity_score)
+#            print(profanity_score)
                 
     min_profanity_score_list_ = round(min(profanity_score_list_),2)
     max_profanity_score_list_ = round(max(profanity_score_list_),2)
 
     return min_profanity_score_list_, max_profanity_score_list_
 
-# d,e = profanity_score_min_max()
-
-# print('profanity score: min=', d, ',', 'max=', e)
-
-# profanity_score_min, profanity_score_max = profanity_score_min_max()
-
-def profanity_score(song_to_be_scored, profanity_score_min, profanity_score_max):
-#     https://github.com/vzhou842/profanity-check
+def profanity_score(song_to_be_scored, profanity_score_min, profanity_score_max, *args):
     words_of_lyrics_of_song_to_be_scored = []
     raw_text = "" 
 
-    f = open(dir_given() + '/Cleaned_Songs/' + song_to_be_scored , 'rb')
+    f = open(dir_given(*args) + '/Cleaned_Songs/' + song_to_be_scored , 'rb')
     for line in f.readlines():
         this_line_wordlist = line.decode('utf-8').split()
         for word in this_line_wordlist:
@@ -275,14 +198,9 @@ def profanity_score(song_to_be_scored, profanity_score_min, profanity_score_max)
     regularization_step = (profanity_score_of_song_to_be_scored - profanity_score_min)/(profanity_score_max - profanity_score_min) 
     profanity_score_of_song_to_be_scored_regularized = 1*regularization_step + 0*(1-regularization_step)
 
-    return round(profanity_score_of_song_to_be_scored_regularized,4)
+    return round(profanity_score_of_song_to_be_scored_regularized,2)
 
-# f = profanity_score('cleaned_688~I Wanna Be Loved~Buy This Song.txt')
-
-# print('profanity score=', f)
-
-def love_score_min_max():
-    #Unoptimized love minmax time of 200s
+def love_score_min_max(*args):
     love_minmax_time = time.time()
     love_words_list_ = [
                    'adore', 'adores', 'adorable', 'affection', 'amour', 'angel', 'bliss', 
@@ -297,12 +215,11 @@ def love_score_min_max():
                     ]
     love_score_list_ = []
 
-    for artist in set(artists_list()):   
+    for artist in set(artists_list(*args)):   
 
-        for song in artist_s_cleaned_songs_list(artist):
+        for song in artist_s_cleaned_songs_list(artist, *args):
             words_of_lyrics = []
-            with open(dir_given() + '/Cleaned_Songs/' + song , 'rb') as f:
-#            f = open(dir_given + '/Cleaned_Songs/' + song , 'rb')
+            with open(dir_given(*args) + '/Cleaned_Songs/' + song , 'rb') as f:
                 counter_for_love_words = 0
                 for line in f.readlines():
                     this_line_wordlist = line.decode('utf-8').split()
@@ -323,13 +240,7 @@ def love_score_min_max():
 
     return min_love_score_list_, max_love_score_list_
 
-# g,h = love_score_min_max()
-
-# print('love score: min=', g, ',', 'max=', h)
-
-# love_score_min, love_score_max = love_score_min_max()
-
-def love_score(song_to_be_scored, love_score_min, love_score_max):
+def love_score(song_to_be_scored, love_score_min, love_score_max, *args):
     
     love_words_list_ = [
                    'adore', 'adores', 'adorable', 'affection', 'amour', 'angel', 'bliss', 
@@ -343,7 +254,7 @@ def love_score(song_to_be_scored, love_score_min, love_score_max):
                    'sweet', 'sweetheart', 'tenderness', 'trust', 'warmth', 'wife'
                     ]
     words_of_lyrics_of_song_to_be_scored = []
-    f = open(dir_given() + '/Cleaned_Songs/' + song_to_be_scored , 'rb')
+    f = open(dir_given(*args) + '/Cleaned_Songs/' + song_to_be_scored , 'rb')
     counter_for_love_words = 0
     for line in f.readlines():
         this_line_wordlist = line.decode('utf-8').split()
@@ -353,7 +264,6 @@ def love_score(song_to_be_scored, love_score_min, love_score_max):
     for item in filtered_words:
         if item in love_words_list_:
             counter_for_love_words += 1
-#     len_counter_for_love_words = len(love_words_list_)
     love_score_of_song_to_be_scored = counter_for_love_words/len(filtered_words)
     love_score_of_song_to_be_scored_rounded = round(love_score_of_song_to_be_scored,4)
     
@@ -362,21 +272,17 @@ def love_score(song_to_be_scored, love_score_min, love_score_max):
 
     return round(love_score_of_song_to_be_scored_rounded_regularized,4)
 
-# i = love_score('cleaned_688~I Wanna Be Loved~Buy This Song.txt')
-
-# print('love score=', i)
-
-def mood_score_min_max()->float:
+def mood_score_min_max(*args)->float:
 
     sid = SentimentIntensityAnalyzer()
     mood_score_list_ = []
 
-    for artist in set(artists_list()):   
+    for artist in set(artists_list(*args)):   
 
-        for song in artist_s_cleaned_songs_list(artist):
+        for song in artist_s_cleaned_songs_list(artist, *args):
             words_of_lyrics = []
             raw_text = "" 
-            f = open(dir_given() + '/Cleaned_Songs/' + song , 'rb')
+            f = open(dir_given(*args) + '/Cleaned_Songs/' + song , 'rb')
             for line in f.readlines():
                 this_line_wordlist = line.decode('utf-8').split()         
                 for word in this_line_wordlist:
@@ -393,19 +299,13 @@ def mood_score_min_max()->float:
 
     return min_mood_score_list_, max_mood_score_list_
 
-# j,k = mood_score_min_max()
-
-# print('mood score: min=', j, ',', 'max=', k)
-
-# mood_score_min, mood_score_max = mood_score_min_max()
-
-def mood_score(song_to_be_scored, mood_score_min, mood_score_max)->float:
+def mood_score(song_to_be_scored, mood_score_min, mood_score_max, *args)->float:
     
     sid = SentimentIntensityAnalyzer()
     words_of_lyrics_of_song_to_be_scored = []
     raw_text = ""
 
-    f = open(dir_given() + '/Cleaned_Songs/' + song_to_be_scored , 'rb')
+    f = open(dir_given(*args) + '/Cleaned_Songs/' + song_to_be_scored , 'rb')
     for line in f.readlines():
         this_line_wordlist = line.decode('utf-8').split()
         for word in this_line_wordlist:
@@ -421,20 +321,16 @@ def mood_score(song_to_be_scored, mood_score_min, mood_score_max)->float:
     
     return round(mood_score_compounded_of_song_to_be_scored_rounded_regularized, 4)
 
-# l = mood_score('cleaned_688~I Wanna Be Loved~Buy This Song.txt')
-
-# print('mood score=', l)
-
-def length_score_min_max():
+def length_score_min_max(*args):
 
     length_score_list_ = []
 
-    for artist in set(artists_list()):   
-        for song in artist_s_cleaned_songs_list(artist):
+    for artist in set(artists_list(*args)):   
+        for song in artist_s_cleaned_songs_list(artist, *args):
                 
             num_words = 0
     
-            f = open(dir_given() + '/Cleaned_Songs/' + song , 'rb')
+            f = open(dir_given(*args) + '/Cleaned_Songs/' + song , 'rb')
             for line in f.readlines():
                 this_line_wordlist = line.decode('utf-8').split()
                 num_words += len(this_line_wordlist)
@@ -445,17 +341,10 @@ def length_score_min_max():
                 
     return min_length_score_list_, max_length_score_list_
 
-# m,n = length_score_min_max()
-
-# print('length score: min=', m, ',', 'max=', n)
-
-# length_score_min, length_score_max = length_score_min_max()
-
-
-def length_score(song_to_be_scored, length_score_min, length_score_max):
+def length_score(song_to_be_scored, length_score_min, length_score_max, *args):
     
     num_words_of_song_to_be_scored = 0
-    f = open(dir_given() + '/Cleaned_Songs/' + song_to_be_scored , 'rb')
+    f = open(dir_given(*args) + '/Cleaned_Songs/' + song_to_be_scored , 'rb')
     for line in f.readlines():
         this_line_wordlist = line.decode('utf-8').split()            
         num_words_of_song_to_be_scored += len(this_line_wordlist)
@@ -467,21 +356,17 @@ def length_score(song_to_be_scored, length_score_min, length_score_max):
 
     return round(length_score_of_song_to_be_scored_regularized,2)
 
-# o = length_score('cleaned_688~I Wanna Be Loved~Buy This Song.txt')
-
-# print('length score=', o)
-
-def complexity_score_min_max():
+def complexity_score_min_max(*args):
 
     complexity_score_list_ = []
 
-    for artist in set(artists_list()):   
-        for song in artist_s_cleaned_songs_list(artist):
+    for artist in set(artists_list(*args)):   
+        for song in artist_s_cleaned_songs_list(artist, *args):
                     
             num_words = 0
             words_of_lyrics = []
 
-            f = open(dir_given() + '/Cleaned_Songs/' + song , 'rb')
+            f = open(dir_given(*args) + '/Cleaned_Songs/' + song , 'rb')
             for line in f.readlines():
                 this_line_wordlist = line.decode('utf-8').split()            
                 num_words += len(this_line_wordlist)
@@ -500,19 +385,12 @@ def complexity_score_min_max():
                                     
     return min_complexity_score_list_, max_complexity_score_list_
 
-# p,q = complexity_score_min_max()
-
-# print('complexity score: min=', p, ',', 'max=', q)
-
-# complexity_score_min, complexity_score_max = complexity_score_min_max()
-
-
-def complexity_score(song_to_be_scored, complexity_score_min, complexity_score_max):
+def complexity_score(song_to_be_scored, complexity_score_min, complexity_score_max, *args):
     
     num_words_of_song_to_be_scored = 0
     words_of_lyrics_of_song_to_be_scored = []
     
-    f = open(dir_given() + '/Cleaned_Songs/' + song_to_be_scored , 'rb')
+    f = open(dir_given(*args) + '/Cleaned_Songs/' + song_to_be_scored , 'rb')
     for line in f.readlines():
         this_line_wordlist = line.decode('utf-8').split()            
         num_words_of_song_to_be_scored += len(this_line_wordlist)
@@ -530,16 +408,6 @@ def complexity_score(song_to_be_scored, complexity_score_min, complexity_score_m
 
     return round(complexity_score_of_song_to_be_scored_regularized, 2)
 
-# r = complexity_score('cleaned_688~I Wanna Be Loved~Buy This Song.txt')
-
-# print('complexity score=', r)
-
-# cell_t = time.time()
-# print(cell_t - cell_s_t)
-
-# %%time
-# cell_s_t = time.time()
-
 def json_creation(artists_list_, raw_filenames_list_, profanity_score_min, profanity_score_max, love_score_min, love_score_max, mood_score_min, mood_score_max, length_score_min, length_score_max, complexity_score_min, complexity_score_max):
     dict_for_json = {}
     for artist in set(artists_list()):
@@ -555,21 +423,12 @@ def json_creation(artists_list_, raw_filenames_list_, profanity_score_min, profa
             dict_for_json_song["complexity"] = complexity_score(song, complexity_score_min, complexity_score_max)
             dict_for_json.setdefault('characterizations:', []).append(dict_for_json_song)
     print(json.dumps(dict_for_json, indent=4))
-
+    print(len(dict_for_json['characterizations:']))
+#    with open('data_out.txt', 'w') as outfile:  
+#        json.dump(dict_for_json, outfile)
 # Checking that all the songs are given a characterization:
 
-    print(len(dict_for_json['characterizations:']))
-
-# cell_t = time.time()
-# print(cell_t - cell_s_t)
-
-
-# In[15]:
-
-
 def main():
-#    global artists_list_, raw_filenames_list_, profanity_score_min, profanity_score_max, love_score_min, love_score_max, mood_score_min, mood_score_max, length_score_min, length_score_max, complexity_score_min, complexity_score_max
-    
     artists_list_ = artists_list()
     print("Artist Time:", time.time() - start_time)
     
@@ -589,69 +448,12 @@ def main():
 
 if __name__ == '__main__':
     start_time = time.time()
-#    dir_given = r'C:\Users\Kyle_Shipley\Documents\Columbia_Docs\IEOR 4501\ProjectTemp\TFA_Project-Alex2\TFA_Project-Alex\Lyrics'
-    #    dir_given = r'C:\Users\Kyle_Shipley\Documents\Columbia_Docs\IEOR 4501\ProjectTemp\TFA_Project-Alex2\TFA_Project-Alex\Lyrics'
+
+    parser = argparse.ArgumentParser('Parses the given directory of lyrics')
+    parser.add_argument('dir_given', help='Directory of the lyrics')
+    args = parser.parse_args()
+
+    dir_given_arg = args.dir_given
     os.chdir(dir_given())
     main()
     print("Runtime is:", time.time() - start_time)
-
-# In[72]
-
-
-#                     if translator.detect(this_sentence).lang == 'en':
-#                         all_words += this_sentence
-#                     else:
-#                         translation = translator.translate(this_sentence)
-#                         all_words += translation.text
-#                 except:
-#                     pass
- 
-#             f.close()
-#             #Deleted Directory variable and modified below line to take given directory
-#             f = open(dir_given + r'/Cleaned_Songs/cleaned_' +  song, 'wb')
-#             f.write(all_words.encode('utf-8'))
-#             f.close()
-# %time
-
-
-# In[ ]:
-
-
-# %time
-
-# def song_translating(artists):
-#     for artist in set(artists):
-#         for song in artist_s_songs_list(artist):
-#     #Changed below to base on single given directory kss0416
-#             f = open(dir_given + r'/Cleaned_Songs/cleaned_' +  song, 'rb')
-#             all_words = ''
-#             for sentence in f.readlines():
-                
-#                 this_sentence = sentence.decode('utf-8')
-#                 try:
-#                     if translator.detect(this_sentence).lang == 'en':
-#                         all_words += this_sentence
-#                     else:
-#                         translation = translator.translate(this_sentence)
-#                         all_words += translation.text
-
-#     #                         from time import sleep
-#     #                         translator = Translator()
-#     #                         translation = translator.translate(this_sentence).text
-#     #                         all_words += translation
-#     #                         sleep(1)
-#     #                     gs = goslate.Goslate()
-#     #                     translatedText = gs.translate(this_sentence,'en')
-#     #                     print(translatedText)
-#     #                     all_words += this_sentence
-#                 except:
-#                     pass
- 
-#             f.close()
-#             #Deleted Directory variable and modified below line to take given directory
-#             f = open(os.path.join(dir_given + '/Cleaned_Songs', 'cleaned_' + song ), "wb")
-#             f.write(all_words.encode('utf-8'))
-#             f.close()
-
-# song_translating(artists)
-
