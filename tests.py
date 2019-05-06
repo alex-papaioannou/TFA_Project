@@ -31,10 +31,10 @@ class TestFuncOutputs(unittest.TestCase):
         self.assertEqual(m.id_song_to_be_scored('cleaned_688~Buy-This-Song~I-Wanna-Be-Loved.txt'), 688)
  
     def test_artist(self):
-        self.assertEqual(m.artist_song_to_be_scored('cleaned_688~Buy-This-Song~I-Wanna-Be-Loved.txt'), "Buy-This-Song")
+        self.assertEqual(m.artist_song_to_be_scored('cleaned_688~Buy-This-Song~I-Wanna-Be-Loved.txt'), "Buy This Song")
          
     def test_title(self):
-        self.assertEqual(m.title_song_to_be_scored('cleaned_688~Buy-This-Song~I-Wanna-Be-Loved.txt'), "I-Wanna-Be-Loved")
+        self.assertEqual(m.title_song_to_be_scored('cleaned_688~Buy-This-Song~I-Wanna-Be-Loved.txt'), "I Wanna Be Loved")
          
     def test_kid_safe(self):
         min_prof, max_prof = m.profanity_score_min_max(test_dir)
