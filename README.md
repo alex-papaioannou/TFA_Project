@@ -2,7 +2,6 @@ IEOR 4501 - TOOLS FOR ANALYTICS
 ====================================
 # Final Project
 ---------------------------------
-[![Build Status](https://travis-ci.org/{apapaioannou92}/{TFA_Project}.png?branch=Alex)](https://travis-ci.org/{apapaioannou92}/{TFA_Project})
 
 Copyright (c) 2019 [Papaioannou Alexandros](https://www.linkedin.com/in/apapaio/) (aap2204), Shipley Kyle (kss0416). All rights reserved.
 
@@ -369,6 +368,113 @@ returns
 ''				      
 ```
 
+11. love_score_min_max() 
+
+Returns the minimum and maximum value of the love scores based on the scores of the 
+lyrics text files we have been provided with (in the folder named “Lyrics”)
+			       
+i.e. the use of that function is just 
+```python
+love_score_min_max() 
+```
+no positional (*args) or keyword (**kwargs) arguments needed			      
+
+12. love_score(song_to_be_scored)
+
+Returns the normalized (based on the minimum and maximum value calculated of the sample space) love 
+score of the song named 'song_to_be_scored' which is passed as a positional argument 
+-having the data type of a string (str)- to the function
+			       
+i.e. 
+```python
+love_score('cleaned_860~The-Beatles~Get-Back.txt') 
+print(love_score('cleaned_860~The-Beatles~Get-Back.txt'))
+```
+returns 
+```python
+''				      
+```
+
+13. mood_score_min_max() 
+
+Returns the minimum and maximum value of the mood scores (has positive is the song's message) 
+based on the scores of the lyrics text files we have been provided with (in the folder named 
+“Lyrics”)
+			       
+i.e. the use of that function is just 
+```python
+mood_score_min_max() 
+```
+no positional (*args) or keyword (**kwargs) arguments needed			      
+
+14. mood_score(song_to_be_scored)
+
+Returns the normalized (based on the minimum and maximum value calculated of the sample space) mood 
+score of the song named 'song_to_be_scored' which is passed as a positional argument -having the data 
+type of a string (str)- to the function
+			       
+i.e. 
+```python
+mood_score('cleaned_860~The-Beatles~Get-Back.txt') 
+print(mood_score('cleaned_860~The-Beatles~Get-Back.txt'))
+```
+returns 
+```python
+''				      
+```
+
+15. length_score_min_max() 
+
+Returns the minimum and maximum value of the length scores (how long a song is) based on the scores 
+of the lyrics text files we have been provided with (in the folder named “Lyrics”)
+			       
+i.e. the use of that function is just 
+```python
+length_score_min_max() 
+```
+no positional (*args) or keyword (**kwargs) arguments needed			      
+
+16. length_score(song_to_be_scored)
+
+Returns the normalized (based on the minimum and maximum value calculated of the sample space) length 
+score of the song named 'song_to_be_scored' which is passed as a positional argument -having the data 
+type of a string (str)- to the function
+			       
+i.e. 
+```python
+length_score('cleaned_860~The-Beatles~Get-Back.txt') 
+print(length_score('cleaned_860~The-Beatles~Get-Back.txt'))
+```
+returns 
+```python
+''				      
+```
+17. complexity_score_min_max() 
+
+Returns the minimum and maximum value of the complexity scores (how complex a song is) based on the scores 
+of the lyrics text files we have been provided with (in the folder named “Lyrics”)
+			       
+i.e. the use of that function is just 
+```python
+complexity_score_min_max() 
+```
+no positional (*args) or keyword (**kwargs) arguments needed			      
+
+18. complexity_score(song_to_be_scored)
+
+Returns the normalized (based on the minimum and maximum value calculated of the sample space) complexity
+score of the song named 'song_to_be_scored' which is passed as a positional argument -having the data 
+type of a string (str)- to the function
+			       
+i.e. 
+```python
+complexity_score('cleaned_860~The-Beatles~Get-Back.txt') 
+print(complexity_score('cleaned_860~The-Beatles~Get-Back.txt'))
+```
+returns 
+```python
+''				      
+```
 ## Proposals for enhancement
 ---------------------------------
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would 
