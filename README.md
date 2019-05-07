@@ -11,8 +11,8 @@ See the end of this file for further copyright and license information.
 
 - [Project Description](#Project-Description)
 - [Project Scope](#Project-Scope)
-- [Input of the program](#Input-of-the program)
-- [Output of the program](#Project-Description)
+- [Input of the program](#Input-of-the-program)
+- [Output of the program](#Output-of-the-program)
 - [Getting Started](#Getting-Started)
 - [Prerequisites](#Prerequisites)
 - [Required modules](#Required-modules)
@@ -26,7 +26,6 @@ See the end of this file for further copyright and license information.
 - [Copyright and License Information](#Copyright-and-License-Information)
 - [Acknowledgments](#Acknowledgments)
 ## Project Description 
----------------------------------
 
 Final Project is a Python project that is submitted as one of the requirements for the fullfillment of the Columbia University IEOR department’s course named “IEOR 4501 - TOOLS FOR ANALYTICS”. The authors of this project are:
 
@@ -34,7 +33,6 @@ Final Project is a Python project that is submitted as one of the requirements f
 2) Shipley Kyle
 
 ## Project Scope 
----------------------------------
 
 We were given a set of text files which held music lyrics; each file held a different song’s lyrics. The scope of this project was to create a tool to categorize the songs based on their lyrics. 
 
@@ -83,7 +81,6 @@ Dimensions
 
 
 ## Getting Started
----------------------------------
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
@@ -95,10 +92,8 @@ The files of the project are the following:
 4) README.md          , the current README file
 
 ## Prerequisites
----------------------------------
 
 ## Required modules
----------------------------------
 
 *langdetect==1.0.7
 
@@ -139,7 +134,7 @@ pip install pep8
 ```
 
 ### Environment setting
----------------------------------
+
 
 ```python
 
@@ -166,10 +161,10 @@ nltk.downloader.download('vader_lexicon')
 nltk.downloader.download('stopwords')
 ```
 ## Run
----------------------------------
+
 
 ### The source code
----------------------------------
+
 
 This is accomplished by typing in a bash terminal 
 
@@ -182,7 +177,7 @@ python main.py /Users/alex/Downloads/Final_Project/Lyrics
 ```
 
 ### The unit testing code
----------------------------------
+
 
 This is accomplished by typing in a bash terminal 
 
@@ -195,9 +190,9 @@ python coverage report -m
 ```
 
 ## Usage
----------------------------------
+
 ### Functions usage
----------------------------------
+
 1. artists_list() 
 
 Returns a list with the unique set of artists that are associated with the lyrics text 
@@ -476,19 +471,19 @@ returns
 ''				      
 ```
 ## Proposals for enhancement
----------------------------------
+
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would 
 like to change. 
 Please make sure to update tests as appropriate.
 
 ## Copyright and License Information
----------------------------------
+
 
 Copyright (c) 2019 [Papaioannou Alexandros](https://www.linkedin.com/in/apapaio/), Shipley Kyle.  All rights reserved.
 
 All trademarks referenced herein are property of their respective holders.
 
 ## Acknowledgments
----------------------------------
+
 * Prof. Paul Logston, Columbia University, Spring 2019
 * Teaching Assistant Ms. Peiying Yu, Columbia University, Spring 2019
