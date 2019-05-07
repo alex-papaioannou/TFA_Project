@@ -1,6 +1,22 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+import subprocess
+
+def pip_install(package):
+    subprocess.call(['pip', 'install', package])
+
+
+pip_install('nltk')
+
+pip_install('profanity-check')
+
+pip_install('coverage')
+pip_install('langdetect')
+#from langdetect import detect
+
+pip_install('googletrans')
+
 import uuid
 import requests
 from googletrans import Translator
@@ -15,26 +31,12 @@ import os
 import re
 import time
 import pip
-import subprocess
 
 
-def pip_install(package):
-    subprocess.call(['pip', 'install', package])
-
-
-pip_install('nltk')
 nltk.downloader.download('vader_lexicon')
 nltk.downloader.download('stopwords')
 
-pip_install('profanity-check')
-
-pip_install('coverage')
-pip_install('langdetect')
-#from langdetect import detect
-
-pip_install('googletrans')
 translator = Translator()
-
 
 def dir_given(test_var=0):
     try:
