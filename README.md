@@ -2,6 +2,7 @@ IEOR 4501 - TOOLS FOR ANALYTICS
 ====================================
 # Final Project
 ---------------------------------
+[![Build Status](https://travis-ci.org/{apapaioannou92}/{TFA_Project}.png?branch=Alex)](https://travis-ci.org/{apapaioannou92}/{TFA_Project})
 
 Copyright (c) 2019 [Papaioannou Alexandros](https://www.linkedin.com/in/apapaio/) (aap2204), Shipley Kyle (kss0416). All rights reserved.
 
