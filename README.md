@@ -44,35 +44,35 @@ The output of your command is a JSON object (sent to standard out, StdOut) that 
 Dimensions
 
 
-*kid_safe: no bad words
+* kid_safe: no bad words
 
 0 is not kid safe
 
 1 is very kid safe
 
 
-*love: is it a love song? 
+* love: is it a love song? 
 
 0 is not a love song
 
 1 is a love song
 
 
-*mood: Upbeat, has a positive message
+* mood: Upbeat, has a positive message
 
 0 is a dark song
 
 1 is a very happy song
 
 
-*length: how long is it
+* length: how long is it
 
 0 is a short song
 
 1 is a very long song
 
 
-*complexity: requires high level of vocabulary to understand
+* complexity: requires high level of vocabulary to understand
 
 0 is a very simple song: [i.e. this is a very simple song](https://www.youtube.com/watch?v=EdMTl9zHQ9Y)
 
@@ -94,27 +94,27 @@ The files of the project are the following:
 
 ## Required modules
 
-*langdetect==1.0.7
+* langdetect==1.0.7
 
-*mstranslate==1.1
-
-
-*mtranslate==1.6
-
-*profanity_check==1.0.2
-
-*requests==2.21.0 
-
-*nltk==3.4 
+* mstranslate==1.1
 
 
-*pipreqs==0.4.9 
+* mtranslate==1.6
 
-*coverage==4.5.3 
+* profanity_check==1.0.2
 
-*autopep8==1.4.4 
+* requests==2.21.0 
 
-*pep8==1.7.1 
+* nltk==3.4 
+
+
+* pipreqs==0.4.9 
+
+* coverage==4.5.3 
+
+* autopep8==1.4.4 
+
+* pep8==1.7.1 
 
 ```bash
 This is how you can install the required modules:
