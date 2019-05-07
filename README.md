@@ -1,7 +1,6 @@
 IEOR 4501 - TOOLS FOR ANALYTICS
 ====================================
 # Final Project
----------------------------------
 
 Copyright (c) 2019 [Papaioannou Alexandros](https://www.linkedin.com/in/apapaio/) (aap2204), Shipley Kyle (kss0416). All rights reserved.
 
@@ -171,7 +170,7 @@ This is accomplished by typing in a bash terminal
 ```bash
 python main.py <directory_of_the_lyrics_folder>
 ```
-i.e.
+and the report is obtained by running
 ```bash
 python main.py /Users/alex/Downloads/Final_Project/Lyrics
 ```
@@ -465,6 +464,35 @@ i.e.
 ```python
 complexity_score('cleaned_860~The-Beatles~Get-Back.txt') 
 print(complexity_score('cleaned_860~The-Beatles~Get-Back.txt'))
+```
+returns 
+```python
+''				      
+```
+
+19. json_creation(artists_list_, raw_filenames_list_, profanity_score_min, profanity_score_max, love_score_min, love_score_max, mood_score_min, mood_score_max, length_score_min, length_score_max, complexity_score_min, complexity_score_max)
+
+Returns the output of the program; a JSON object (sent to standard out, StdOut) that contains a list of characterizations; 
+one for each song. Each characterization object has the listed dimensions (keys) and a values for how well the song fits 
+into that dimension. These values have been normalized based on the min and max values of the sample space of each specific dimension. The positional arguments passed in the function named json_creation() are:
+
+* artists_list_
+* raw_filenames_list_
+* profanity_score_min
+* profanity_score_max
+* love_score_min
+* love_score_max
+* mood_score_min
+* mood_score_max
+* length_score_min
+* length_score_max
+* complexity_score_min
+* complexity_score_max
+		       
+i.e. 
+```python
+json_creation(artists_list_, raw_filenames_list_, profanity_score_min, profanity_score_max, love_score_min, love_score_max, mood_score_min, mood_score_max, length_score_min, length_score_max, complexity_score_min, complexity_score_max)
+print(json_creation(artists_list_, raw_filenames_list_, profanity_score_min, profanity_score_max, love_score_min, love_score_max, mood_score_min, mood_score_max, length_score_min, length_score_max, complexity_score_min, complexity_score_max))
 ```
 returns 
 ```python
