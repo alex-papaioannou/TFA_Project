@@ -16,6 +16,8 @@ import re
 import time
 import pip
 import subprocess
+from langdetect import detect
+from mtranslate import translate
 
 
 def pip_install(package):
@@ -34,6 +36,8 @@ pip_install('langdetect')
 
 pip_install('googletrans')
 translator = Translator()
+
+pip_install('mtranslate')
 
 
 def dir_given(test_var=0):
@@ -458,12 +462,17 @@ def json_creation(artists_list_, raw_filenames_list_, profanity_score_min, profa
         dict_for_json_song["id"] = id_song_to_be_scored(song)
         dict_for_json_song["artist"] = artist_song_to_be_scored(song)
         dict_for_json_song["title"] = title_song_to_be_scored(song)
-        dict_for_json_song["kids_safe"] = profanity_score(
-            song, profanity_score_min, profanity_score_max)
-        dict_for_json_song["love"] = love_score(
-            song, love_score_min, love_score_max)
-        dict_for_json_song["mood"] = mood_score(
-            song, mood_score_min, mood_score_max)
+        if translator.detect(title_song_to_be_scored(song)).lang != 'en':
+            dict_for_json_song["kids_safe"] = 0.5
+            dict_for_json_song["love"] = 0.5
+            dict_for_json_song["mood"] = 0.5
+        else:
+            dict_for_json_song["kids_safe"] = profanity_score(
+                song, profanity_score_min, profanity_score_max)
+            dict_for_json_song["love"] = love_score(
+                song, love_score_min, love_score_max)
+            dict_for_json_song["mood"] = mood_score(
+                song, mood_score_min, mood_score_max)
         dict_for_json_song["length"] = length_score(
             song, length_score_min, length_score_max)
         dict_for_json_song["complexity"] = complexity_score(
