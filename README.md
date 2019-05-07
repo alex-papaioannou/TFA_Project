@@ -192,12 +192,15 @@ python coverage report -m
 
 ### Functions usage
 
-1. artists_list() 
+1. artists_list(*args) 
 
 Returns a list with the unique set of artists that are associated with the lyrics text 
 files 
 
 i.e. the use of that function is just 
+
+***All functions with *args only use these arguments to pass a testing directory path 
+during testing, when running tests.py***
 
 ```python
 artists_list() 
@@ -205,7 +208,7 @@ artists_list()
 
 no positional (*args) or keyword (**kwargs) arguments needed
 
-2. raw_filenames_list() 
+2. raw_filenames_list(*args) 
 
 Returns a list with all the filenames of the lyrics text files of the folder named “Lyrics”
 
@@ -218,7 +221,7 @@ raw_filenames_list()
 no positional (*args) or keyword (**kwargs) arguments needed
 
 
-3. artist_s_songs_list(str)  
+3. artist_s_songs_list(str, *args)  
 
 
 Returns a list with all the filenames of the the lyrics text files that are associated with 
@@ -236,7 +239,7 @@ returns
 
 ['629~The-Beatles~From-Me-to-You.txt', '860~The-Beatles~Get-Back.txt']
 ```
-4. song_cleaning() 
+4. song_cleaning(*args) 
 
 
 a) returns a directory under the current (working) directory named "Cleaned_Songs"
@@ -254,7 +257,7 @@ song_cleaning()
 
 no positional (*args) or keyword (**kwargs) arguments needed
 
-5. artist_s_cleaned_songs_list(str)  
+5. artist_s_cleaned_songs_list(str, *args)  
 
 returns a list with all the filenames of the the “cleaned” lyrics text files that are associated 
 with the artist that is passed as a string (str) to the function
@@ -345,7 +348,7 @@ returns
 
 ```
 
-9. profanity_score_min_max() 
+9. profanity_score_min_max(*args) 
 
 Returns the minimum and maximum value of the profanity (kids_safe) scores based on the scores of the 
 lyrics text files we have been provided with (in the folder named “Lyrics”)
@@ -364,7 +367,7 @@ returns
 
 ```
 
-10. profanity_score(song_to_be_scored)
+10. profanity_score(song_to_be_scored, *args)
 
 Returns the normalized (based on the minimum and maximum value calculated of the sample space) profanity 
 (kids_safe) score of the song named 'song_to_be_scored' which is passed as a positional argument 
@@ -379,7 +382,7 @@ returns
 1.0				      
 ```
 
-11. love_score_min_max() 
+11. love_score_min_max(*args) 
 
 Returns the minimum and maximum value of the love scores based on the scores of the 
 lyrics text files we have been provided with (in the folder named “Lyrics”)
@@ -397,7 +400,7 @@ returns
 (0.0, 1.909)
 
 ```
-12. love_score(song_to_be_scored)
+12. love_score(song_to_be_scored, *args)
 
 Returns the normalized (based on the minimum and maximum value calculated of the sample space) love 
 score of the song named 'song_to_be_scored' which is passed as a positional argument 
@@ -418,7 +421,7 @@ returns
 
 ```
 
-13. mood_score_min_max() 
+13. mood_score_min_max(*args) 
 
 Returns the minimum and maximum value of the mood scores (has positive is the song's message) 
 based on the scores of the lyrics text files we have been provided with (in the folder named 
@@ -437,7 +440,7 @@ returns
 (-0.999, 1.0)
 
 ```
-14. mood_score(song_to_be_scored)
+14. mood_score(song_to_be_scored, *args)
 
 Returns the normalized (based on the minimum and maximum value calculated of the sample space) mood 
 score of the song named 'song_to_be_scored' which is passed as a positional argument -having the data 
@@ -459,7 +462,7 @@ returns
 
 ```
 
-15. length_score_min_max() 
+15. length_score_min_max(*args) 
 
 Returns the minimum and maximum value of the length scores (how long a song is) based on the scores 
 of the lyrics text files we have been provided with (in the folder named “Lyrics”)
@@ -477,7 +480,7 @@ returns
 (0, 961)
 
 ```
-16. length_score(song_to_be_scored)
+16. length_score(song_to_be_scored, *args)
 
 Returns the normalized (based on the minimum and maximum value calculated of the sample space) length 
 score of the song named 'song_to_be_scored' which is passed as a positional argument -having the data 
@@ -499,7 +502,7 @@ returns
 
 ```
 
-17. complexity_score_min_max() 
+17. complexity_score_min_max(*args) 
 
 Returns the minimum and maximum value of the complexity scores (how complex a song is) based on the scores 
 of the lyrics text files we have been provided with (in the folder named “Lyrics”)
@@ -521,7 +524,7 @@ returns
 (0, 1.0)
 
 ```
-18. complexity_score(song_to_be_scored)
+18. complexity_score(song_to_be_scored, *args)
 
 Returns the normalized (based on the minimum and maximum value calculated of the sample space) complexity
 score of the song named 'song_to_be_scored' which is passed as a positional argument -having the data 
@@ -543,7 +546,7 @@ returns
 
 ```
 
-19. json_creation(artists_list_, raw_filenames_list_, profanity_score_min, profanity_score_max, love_score_min, love_score_max, mood_score_min, mood_score_max, length_score_min, length_score_max, complexity_score_min, complexity_score_max)
+19. json_creation(artists_list_, raw_filenames_list_, profanity_score_min, profanity_score_max, love_score_min, love_score_max, mood_score_min, mood_score_max, length_score_min, length_score_max, complexity_score_min, complexity_score_max, *args)
 
 Returns the output of the program; a JSON object (sent to standard out, StdOut) that contains a list of characterizations; 
 one for each song. Each characterization object has the listed dimensions (keys) and a values for how well the song fits 
