@@ -18,6 +18,44 @@ The input to your command should be the path to the directory holding the song f
 ### Output of the program
 The output of your command is a JSON object (sent to standard out, StdOut) that contains a list of characterizations; one for each song. Each characterization object has the listed dimensions (keys) and a values for how well the song fits into that dimension. 
 
+Dimensions
+
+
+kid_safe: no bad words
+
+0 is not kid safe
+
+1 is very kid safe
+
+
+love: is it a love song? 
+
+0 is not a love song
+
+1 is a love song
+
+
+mood: Upbeat, has a positive message
+
+0 is a dark song
+
+1 is a very happy song
+
+
+length: how long is it
+
+0 is a short song
+
+1 is a very long song
+
+
+complexity: requires high level of vocabulary to understand
+
+0 is a very simple song: [i.e. this is a very simple song](https://www.youtube.com/watch?v=EdMTl9zHQ9Y)
+
+1 is a very complex song
+
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
