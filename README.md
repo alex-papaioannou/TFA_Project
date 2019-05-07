@@ -1,23 +1,13 @@
-# IEOR 4501 - TOOLS FOR ANALYTICS
-# Final Project
+IEOR 4501 - TOOLS FOR ANALYTICS
+====================================
+Final Project
 ---------------------------------
-Copyright (c) 2001-2019 Python Software Foundation.  All rights reserved.
+
+Copyright (c) 2019 Papaioannou Alexandros (aap2204), Shipley Kyle (kss0416). All rights reserved.
 
 See the end of this file for further copyright and license information.
 
 .. contents::
-
-General Information
--------------------
-
-- Website: https://www.python.org
-- Source code: https://github.com/python/cpython
-- Issue tracker: https://bugs.python.org
-- Documentation: https://docs.python.org
-- Developer's Guide: https://devguide.python.org/
-
-Contributing to CPython
------------------------
 
 Project Description 
 ---------------------------------
