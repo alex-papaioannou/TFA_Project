@@ -1,30 +1,139 @@
-# IEOR 4501 - TOOLS FOR ANALYTICS
+IEOR 4501 - TOOLS FOR ANALYTICS
+====================================
 # Final Project
 
-Final Project is a Python project that is submitted as one of the requirements for the fullfillment of the Columbia University IEOR department’s course named “IEOR 4501 - TOOLS FOR ANALYTICS”. The authors of this project are Papaioannou Alexandros Anastasios and Shipley Kyle
+Copyright (c) 2019 [Papaioannou Alexandros](https://www.linkedin.com/in/apapaio/) (aap2204), Shipley Kyle (kss0416). All rights reserved.
 
-## Installation 
+See the end of this file for further copyright and license information.
 
-### Needed packages
+## Table of Contents
 
-googletrans==2.4.0
+- [Project Description](#Project-Description)
+- [Project Scope](#Project-Scope)
+- [Input of the program](#Input-of-the-program)
+- [Output of the program](#Output-of-the-program)
+- [Getting Started](#Getting-Started)
+- [Prerequisites](#Prerequisites)
+- [Required modules](#Required-modules)
+- [Environment setting](#Environment-setting)
+- [Run](#Run)
+- [The source code](#The-source-code)
+- [The unit testing code](#The-unit-testing-code)
+- [Usage](#Usage)
+- [Functions usage](#Functions-usage)
+- [Proposals for enhancement](#Proposals-for-enhancement)
+- [Copyright and License Information](#Copyright-and-License-Information)
+- [Acknowledgments](#Acknowledgments)
+## Project Description 
+
+Final Project is a Python project that is submitted as one of the requirements for the fullfillment of the Columbia University IEOR department’s course named “IEOR 4501 - TOOLS FOR ANALYTICS”. The authors of this project are:
+
+1) Papaioannou Alexandros Anastasios
+2) Shipley Kyle
+
+## Project Scope 
+
+We were given a set of text files which held music lyrics; each file held a different song’s lyrics. The scope of this project was to create a tool to categorize the songs based on their lyrics. 
+
+Our program constitutes a single python file (.py file) and it is executable as a single command. 
+### Input of the program
+The input to your command should be the path to the directory holding the song files. 
+### Output of the program
+The output of your command is a JSON object (sent to standard out, StdOut) that contains a list of characterizations; one for each song. Each characterization object has the listed dimensions (keys) and a values for how well the song fits into that dimension. 
+
+Dimensions
+
+
+*kid_safe: no bad words
+
+0 is not kid safe
+
+1 is very kid safe
+
+
+*love: is it a love song? 
+
+0 is not a love song
+
+1 is a love song
+
+
+*mood: Upbeat, has a positive message
+
+0 is a dark song
+
+1 is a very happy song
+
+
+*length: how long is it
+
+0 is a short song
+
+1 is a very long song
+
+
+*complexity: requires high level of vocabulary to understand
+
+0 is a very simple song: [i.e. this is a very simple song](https://www.youtube.com/watch?v=EdMTl9zHQ9Y)
+
+1 is a very complex song
+
+
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
+The files of the project are the following: 
+
+1) main.py            , the executable code
+2) tests.py           , the unit testing code
+3) requirements.txt   , the packages that the projects requires to be installed for the code to be able to run
+4) README.md          , the current README file
+
+## Prerequisites
+
+## Required modules
+
+*langdetect==1.0.7
+
+*mstranslate==1.1
+
+
+*mtranslate==1.6
+
+*profanity_check==1.0.2
+
+*requests==2.21.0 
+
+*nltk==3.4 
+
+
+*pipreqs==0.4.9 
+
+*coverage==4.5.3 
+
+*autopep8==1.4.4 
+
+*pep8==1.7.1 
 
 ```bash
+This is how you can install the required modules:
 
-pip install autopep8
-pip install coverage
-pip install nltk
-pip install profanity-check
 pip install langdetect
-pip install googletrans
-pip install requests
-pip install pipreqs
+pip install mtranslate
 
+pip install profanity-check
+pip install requests
+pip install nltk
+
+pip install pipreqs
+pip install coverage
+pip install autopep8
+pip install pep8
 ```
 
-## Usage
-
 ### Environment setting
+
 
 ```python
 
@@ -34,140 +143,448 @@ import glob
 import re
 import json
 import time
-
+import argparse
 from collections import defaultdict
 from collections import Counter
+import uuid
 
+from langdetect import detect
+from mtranslate import translate
+
+from profanity_check import predict, predict_prob
+import requests
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from nltk.corpus import stopwords
 import nltk.data
 nltk.downloader.download('vader_lexicon')
 nltk.downloader.download('stopwords')
-
-from profanity_check import predict, predict_prob
-# https://github.com/vzhou842/profanity-check
-
-import argparse
-
-from langdetect import detect
-
-from googletrans import Translator
-translator = Translator()
-
-import requests, uuid
 ```
+## Run
+
+
+### The source code
+
+
+This is accomplished by typing in a bash terminal 
+
+```bash
+python main.py <directory_of_the_lyrics_folder>
+```
+and the report is obtained by running
+```bash
+python main.py /Users/alex/Downloads/Final_Project/Lyrics
+```
+
+### The unit testing code
+
+
+This is accomplished by typing in a bash terminal 
+
+```bash
+python coverage run tests.py
+```
+i.e.
+```bash
+python coverage report -m
+```
+
+## Usage
 
 ### Functions usage
 
+1. artists_list() 
+
+Returns a list with the unique set of artists that are associated with the lyrics text 
+files 
+
+i.e. the use of that function is just 
+
 ```python
-
-1. artists_list(*args) 
-
-# returns a list with the unique set of artists that are associated with the lyrics text 
-# files 
-
-#***Note that all functions with *args only use the *args when testing is preformed, this is to pass a testing directory***
+artists_list() 
 ```
 
-```python
-2. raw_filenames_list(*args) 
+no positional (*args) or keyword (**kwargs) arguments needed
 
-# returns a list with all the filenames of the lyrics text files of the folder named “Lyrics”
+2. raw_filenames_list() 
+
+Returns a list with all the filenames of the lyrics text files of the folder named “Lyrics”
+
+i.e. the use of that function is just 
+
+```python
+raw_filenames_list() 
 ```
 
+no positional (*args) or keyword (**kwargs) arguments needed
+
+
+3. artist_s_songs_list(str)  
+
+
+Returns a list with all the filenames of the the lyrics text files that are associated with 
+the artist that is passed as a string (str) to the function
+
+i.e. 
+
 ```python
-3. artist_s_songs_list(str, *args)  
 
-# returns a list with all the filenames of the the lyrics text files that are associated with 
-# the artist that is passed as a string (str) to the function
+artist_s_songs_list('The-Beatles') 
 
-i.e. artist_s_songs_list('The Beatles') 
-
-# print(artist_s_songs_list('The Beatles')) returns ['860~Get Back~The Beatles.txt', '629~From Me to You~The Beatles.txt']
 ```
-
+returns 
 ```python
-4. song_cleaning(*args) 
 
-# a) returns a directory under the current (working) directory named "Cleaned_Songs"
-# b) iterates through all the lyrics text files of the songs of all the artists of 
-#    the artists_list()
-# c) opens their lyrics text files of each song, decodes the words in 'utf-8', and cleans 
-#    them up by removing special characters and empty lines [\(\[],.*?[\)\]]
-# d) creates a new lyrics text file named 'cleaned_<song_name.txt>' for each song 
+['629~The-Beatles~From-Me-to-You.txt', '860~The-Beatles~Get-Back.txt']
+```
+4. song_cleaning() 
+
+
+a) returns a directory under the current (working) directory named "Cleaned_Songs"
+b) iterates through all the lyrics text files of the songs of all the artists of 
+    the artists_list()
+c) opens their lyrics text files of each song, decodes the words in 'utf-8', and cleans 
+    them up by removing special characters and empty lines [\(\[],.*?[\)\]]
+d) creates a new lyrics text file named 'cleaned_<song_name.txt>' for each song 
      and it pastes the cleaned text of the lyrics in the text file 
 
-i.e. the use of that function is just song_cleaning()
-```
+i.e. the use of that function is just 
 ```python
-5. artist_s_cleaned_songs_list(str, *args)  
-
-# returns a list with all the filenames of the the “cleaned” lyrics text files that are associated 
-# with the artist that is passed as a string (str) to the function
-
-i.e. artist_s_cleaned_songs_list('The Beatles') 
-
-# print(artist_s_cleaned_songs_list('The Beatles')) returns ['cleaned_860~Get Back~The Beatles.txt', 
-# 'cleaned_629~From Me to You~The Beatles.txt']
+song_cleaning() 
 ```
 
-```python
-6. id_song_to_be_scored(song_to_be_scored, *args) 
+no positional (*args) or keyword (**kwargs) arguments needed
 
-# returns the id number of the lyrics text file that is named 'song_to_be_scored' and it is passed as a 
-# positional argument -having the data type of a string (str)- to the function.
-# Note: regular expressions (regex) has been used in order to capture the id of the song. More, specifically 
-# based on the format of the given text files the following pattern was used:
+5. artist_s_cleaned_songs_list(str)  
+
+returns a list with all the filenames of the the “cleaned” lyrics text files that are associated 
+with the artist that is passed as a string (str) to the function
+
+i.e. 
+
+```python
+
+artist_s_cleaned_songs_list('The-Beatles') 
+
+```
+returns 
+
+```python
+
+['cleaned_860~The-Beatles~Get-Back.txt', 'cleaned_629~The-Beatles~From-Me-to-You.txt']
+
+```
+
+6. id_song_to_be_scored(song_to_be_scored) 
+
+Returns the id number of the lyrics text file that is named 'song_to_be_scored' and it is passed as a 
+positional argument -having the data type of a string (str)- to the function.
+Note: regular expressions (regex) has been used in order to capture the id of the song. More, specifically 
+based on the format of the given text files the following pattern was used:
+
+```python
 	r'(cleaned_)(?P<id>[\d\D]+)(~)(?P<artist_name>[\d\D]+)(~)(?P<song_title>[\d\D]+)(.txt)'
-
-i.e. id_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt') 
-
-# print(id_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt')) returns '860'
 ```
+i.e. 
+```python
+
+id_song_to_be_scored('cleaned_860~The-Beatles~Get-Back.txt') 
+
+```
+returns 
 
 ```python
-7. artist_song_to_be_scored(song_to_be_scored, *args) 
 
-# returns the name of the artist of the song named 'song_to_be_scored' which is passed as a positional 
-# argument -having the data type of a string (str)- to the function
-# Note: regular expressions (regex) has been used in order to capture the id of the song. More, specifically 
-# based on the format of the given text files the following pattern was used:
+'860'
+
+```
+7. artist_song_to_be_scored(song_to_be_scored) 
+
+Returns the name of the artist of the song named 'song_to_be_scored' which is passed as a positional 
+argument -having the data type of a string (str)- to the function
+Note: regular expressions (regex) has been used in order to capture the id of the song. More, specifically 
+based on the format of the given text files the following pattern was used:
+```python
 	r'(cleaned_)(?P<id>[\d\D]+)(~)(?P<artist_name>[\d\D]+)(~)(?P<song_title>[\d\D]+)(.txt)'
-
-i.e. artist_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt') 
-
-# print(artist_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt')) returns 'The Beatles'
 ```
+i.e. 
 ```python
-8. title_song_to_be_scored(song_to_be_scored, *args) 
 
-# returns the title of the song named 'song_to_be_scored' which is passed as a positional argument 
-# -having the data type of a string (str)- to the function
-# Note: regular expressions (regex) has been used in order to capture the id of the song. More, specifically 
-# based on the format of the given text files the following pattern was used:
+artist_song_to_be_scored('cleaned_860~The-Beatles~Get-Back.txt') 
+
+```
+
+returns 
+
+```python
+
+'The Beatles'
+
+```
+
+8. title_song_to_be_scored(song_to_be_scored) 
+
+Returns the title of the song named 'song_to_be_scored' which is passed as a positional argument 
+-having the data type of a string (str)- to the function
+Note: regular expressions (regex) has been used in order to capture the id of the song. More, specifically 
+based on the format of the given text files the following pattern was used:
+```python
+
 	r'(cleaned_)(?P<id>[\d\D]+)(~)(?P<artist_name>[\d\D]+)(~)(?P<song_title>[\d\D]+)(.txt)'
-		
-i.e. title_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt') 
-
-# print(title_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt')) returns 'Get Back'
 ```
+i.e. 
 ```python
-9. profanity_score_min_max(*args) 
 
-# returns the minimum and maximum value of the profanity (kids_safe) scores based on the scores of the 
-# lyrics text files we have been provided with (in the folder named “Lyrics”)
+title_song_to_be_scored('cleaned_860~The-Beatles~Get-Back.txt') 
+
+```
+returns 
+
+```python
+
+'Get Back'
+
+```
+
+9. profanity_score_min_max() 
+
+Returns the minimum and maximum value of the profanity (kids_safe) scores based on the scores of the 
+lyrics text files we have been provided with (in the folder named “Lyrics”)
 			       
-i.e. title_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt') 
+i.e. the use of that function is just 
+```python
+profanity_score_min_max() 
+```
+no positional (*args) or keyword (**kwargs) arguments needed			      
 
-# print(title_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt')) returns 'Get Back'				      
+returns 
+
+```python
+
+(0.0, 1.0)
+
 ```
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would 
-like to change.
+10. profanity_score(song_to_be_scored)
 
+Returns the normalized (based on the minimum and maximum value calculated of the sample space) profanity 
+(kids_safe) score of the song named 'song_to_be_scored' which is passed as a positional argument 
+-having the data type of a string (str)- to the function
+			       
+i.e. 
+```python
+profanity_score('cleaned_860~The-Beatles~Get-Back.txt') 
+```
+returns 
+```python
+1.0				      
+```
+
+11. love_score_min_max() 
+
+Returns the minimum and maximum value of the love scores based on the scores of the 
+lyrics text files we have been provided with (in the folder named “Lyrics”)
+			       
+i.e. the use of that function is just 
+```python
+love_score_min_max() 
+```
+no positional (*args) or keyword (**kwargs) arguments needed			      
+
+returns 
+
+```python
+
+(0.0, 1.909)
+
+```
+12. love_score(song_to_be_scored)
+
+Returns the normalized (based on the minimum and maximum value calculated of the sample space) love 
+score of the song named 'song_to_be_scored' which is passed as a positional argument 
+-having the data type of a string (str)- to the function
+			       
+i.e. 
+
+```python
+
+love_score('cleaned_860~The-Beatles~Get-Back.txt') 
+
+```
+returns 
+
+```python
+
+0.0				      
+
+```
+
+13. mood_score_min_max() 
+
+Returns the minimum and maximum value of the mood scores (has positive is the song's message) 
+based on the scores of the lyrics text files we have been provided with (in the folder named 
+“Lyrics”)
+			       
+i.e. the use of that function is just 
+```python
+mood_score_min_max() 
+```
+no positional (*args) or keyword (**kwargs) arguments needed			      
+
+returns 
+
+```python
+
+(-0.999, 1.0)
+
+```
+14. mood_score(song_to_be_scored)
+
+Returns the normalized (based on the minimum and maximum value calculated of the sample space) mood 
+score of the song named 'song_to_be_scored' which is passed as a positional argument -having the data 
+type of a string (str)- to the function
+			       
+i.e. 
+
+```python
+
+mood_score('cleaned_860~The-Beatles~Get-Back.txt') 
+
+```
+
+returns 
+
+```python
+
+0.6				      
+
+```
+
+15. length_score_min_max() 
+
+Returns the minimum and maximum value of the length scores (how long a song is) based on the scores 
+of the lyrics text files we have been provided with (in the folder named “Lyrics”)
+			       
+i.e. the use of that function is just 
+```python
+length_score_min_max() 
+```
+no positional (*args) or keyword (**kwargs) arguments needed			      
+
+returns 
+
+```python
+
+(0, 961)
+
+```
+16. length_score(song_to_be_scored)
+
+Returns the normalized (based on the minimum and maximum value calculated of the sample space) length 
+score of the song named 'song_to_be_scored' which is passed as a positional argument -having the data 
+type of a string (str)- to the function
+			       
+i.e. 
+
+```python
+
+length_score('cleaned_860~The-Beatles~Get-Back.txt') 
+
+```
+
+returns 
+
+```python
+
+0.2				      
+
+```
+
+17. complexity_score_min_max() 
+
+Returns the minimum and maximum value of the complexity scores (how complex a song is) based on the scores 
+of the lyrics text files we have been provided with (in the folder named “Lyrics”)
+			       
+i.e. the use of that function is just 
+
+```python
+
+complexity_score_min_max() 
+
+```
+
+no positional (*args) or keyword (**kwargs) arguments needed			      
+
+returns 
+
+```python
+
+(0, 1.0)
+
+```
+18. complexity_score(song_to_be_scored)
+
+Returns the normalized (based on the minimum and maximum value calculated of the sample space) complexity
+score of the song named 'song_to_be_scored' which is passed as a positional argument -having the data 
+type of a string (str)- to the function
+			       
+i.e. 
+
+```python
+
+complexity_score('cleaned_860~The-Beatles~Get-Back.txt') 
+
+```
+
+returns 
+
+```python
+
+0.2				      
+
+```
+
+19. json_creation(artists_list_, raw_filenames_list_, profanity_score_min, profanity_score_max, love_score_min, love_score_max, mood_score_min, mood_score_max, length_score_min, length_score_max, complexity_score_min, complexity_score_max)
+
+Returns the output of the program; a JSON object (sent to standard out, StdOut) that contains a list of characterizations; 
+one for each song. Each characterization object has the listed dimensions (keys) and a values for how well the song fits 
+into that dimension. These values have been normalized based on the min and max values of the sample space of each specific dimension. The positional arguments passed in the function named json_creation() are:
+
+* artists_list_
+* raw_filenames_list_
+* profanity_score_min
+* profanity_score_max
+* love_score_min
+* love_score_max
+* mood_score_min
+* mood_score_max
+* length_score_min
+* length_score_max
+* complexity_score_min
+* complexity_score_max
+		       
+i.e. 
+```python
+json_creation(artists_list_, raw_filenames_list_, profanity_score_min, profanity_score_max, love_score_min, love_score_max, mood_score_min, mood_score_max, length_score_min, length_score_max, complexity_score_min, complexity_score_max)
+print(json_creation(artists_list_, raw_filenames_list_, profanity_score_min, profanity_score_max, love_score_min, love_score_max, mood_score_min, mood_score_max, length_score_min, length_score_max, complexity_score_min, complexity_score_max))
+```
+returns 
+```python
+''				      
+```
+## Proposals for enhancement
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would 
+like to change. 
 Please make sure to update tests as appropriate.
 
-## License
-[Alexandros Papaioannou](https://www.linkedin.com/in/apapaio/)
-[Kyle Shipley]
+## Copyright and License Information
+
+
+Copyright (c) 2019 [Papaioannou Alexandros](https://www.linkedin.com/in/apapaio/), Shipley Kyle.  All rights reserved.
+
+All trademarks referenced herein are property of their respective holders.
+
+## Acknowledgments
+
+* Prof. Paul Logston, Columbia University, Spring 2019
+* Teaching Assistant Ms. Peiying Yu, Columbia University, Spring 2019
