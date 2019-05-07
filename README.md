@@ -230,12 +230,11 @@ i.e.
 
 artist_s_songs_list('The-Beatles') 
 
-print(artist_s_songs_list('The-Beatles')) 
 ```
 returns 
 ```python
 
-['860~The-Beatles~Get-Back.txt', '629~The-Beatles~From-Me-to-You.txt']
+['629~The-Beatles~From-Me-to-You.txt', '860~The-Beatles~Get-Back.txt']
 ```
 4. song_cleaning() 
 
@@ -266,8 +265,6 @@ i.e.
 
 artist_s_cleaned_songs_list('The-Beatles') 
 
-print(artist_s_cleaned_songs_list('The-Beatles')) 
-
 ```
 returns 
 
@@ -289,12 +286,16 @@ based on the format of the given text files the following pattern was used:
 ```
 i.e. 
 ```python
+
 id_song_to_be_scored('cleaned_860~The-Beatles~Get-Back.txt') 
-print(id_song_to_be_scored('cleaned_860~The-Beatles~Get-Back.txt'))
+
 ```
 returns 
+
 ```python
+
 '860'
+
 ```
 7. artist_song_to_be_scored(song_to_be_scored) 
 
@@ -307,12 +308,17 @@ based on the format of the given text files the following pattern was used:
 ```
 i.e. 
 ```python
+
 artist_song_to_be_scored('cleaned_860~The-Beatles~Get-Back.txt') 
-print(artist_song_to_be_scored('cleaned_860~The-Beatles~Get-Back.txt')) 
+
 ```
+
 returns 
+
 ```python
-'The-Beatles'
+
+'The Beatles'
+
 ```
 
 8. title_song_to_be_scored(song_to_be_scored) 
@@ -327,12 +333,16 @@ based on the format of the given text files the following pattern was used:
 ```
 i.e. 
 ```python
+
 title_song_to_be_scored('cleaned_860~The-Beatles~Get-Back.txt') 
-print(title_song_to_be_scored('cleaned_860~The-Beatles~Get-Back.txt')) 
+
 ```
 returns 
+
 ```python
-'Get-Back'
+
+'Get Back'
+
 ```
 
 9. profanity_score_min_max() 
@@ -346,6 +356,14 @@ profanity_score_min_max()
 ```
 no positional (*args) or keyword (**kwargs) arguments needed			      
 
+returns 
+
+```python
+
+(0.0, 1.0)
+
+```
+
 10. profanity_score(song_to_be_scored)
 
 Returns the normalized (based on the minimum and maximum value calculated of the sample space) profanity 
@@ -355,11 +373,10 @@ Returns the normalized (based on the minimum and maximum value calculated of the
 i.e. 
 ```python
 profanity_score('cleaned_860~The-Beatles~Get-Back.txt') 
-print(title_song_to_be_scored('cleaned_860~The-Beatles~Get-Back.txt'))
 ```
 returns 
 ```python
-''				      
+1.0				      
 ```
 
 11. love_score_min_max() 
@@ -373,6 +390,13 @@ love_score_min_max()
 ```
 no positional (*args) or keyword (**kwargs) arguments needed			      
 
+returns 
+
+```python
+
+(0.0, 1.909)
+
+```
 12. love_score(song_to_be_scored)
 
 Returns the normalized (based on the minimum and maximum value calculated of the sample space) love 
@@ -380,13 +404,18 @@ score of the song named 'song_to_be_scored' which is passed as a positional argu
 -having the data type of a string (str)- to the function
 			       
 i.e. 
+
 ```python
+
 love_score('cleaned_860~The-Beatles~Get-Back.txt') 
-print(love_score('cleaned_860~The-Beatles~Get-Back.txt'))
+
 ```
 returns 
+
 ```python
-''				      
+
+0.0				      
+
 ```
 
 13. mood_score_min_max() 
@@ -401,6 +430,13 @@ mood_score_min_max()
 ```
 no positional (*args) or keyword (**kwargs) arguments needed			      
 
+returns 
+
+```python
+
+(-0.999, 1.0)
+
+```
 14. mood_score(song_to_be_scored)
 
 Returns the normalized (based on the minimum and maximum value calculated of the sample space) mood 
@@ -408,13 +444,19 @@ score of the song named 'song_to_be_scored' which is passed as a positional argu
 type of a string (str)- to the function
 			       
 i.e. 
+
 ```python
+
 mood_score('cleaned_860~The-Beatles~Get-Back.txt') 
-print(mood_score('cleaned_860~The-Beatles~Get-Back.txt'))
+
 ```
+
 returns 
+
 ```python
-''				      
+
+0.6				      
+
 ```
 
 15. length_score_min_max() 
@@ -428,6 +470,13 @@ length_score_min_max()
 ```
 no positional (*args) or keyword (**kwargs) arguments needed			      
 
+returns 
+
+```python
+
+(0, 961)
+
+```
 16. length_score(song_to_be_scored)
 
 Returns the normalized (based on the minimum and maximum value calculated of the sample space) length 
@@ -435,25 +484,43 @@ score of the song named 'song_to_be_scored' which is passed as a positional argu
 type of a string (str)- to the function
 			       
 i.e. 
+
 ```python
+
 length_score('cleaned_860~The-Beatles~Get-Back.txt') 
-print(length_score('cleaned_860~The-Beatles~Get-Back.txt'))
+
 ```
+
 returns 
+
 ```python
-''				      
+
+0.2				      
+
 ```
+
 17. complexity_score_min_max() 
 
 Returns the minimum and maximum value of the complexity scores (how complex a song is) based on the scores 
 of the lyrics text files we have been provided with (in the folder named “Lyrics”)
 			       
 i.e. the use of that function is just 
+
 ```python
+
 complexity_score_min_max() 
+
 ```
+
 no positional (*args) or keyword (**kwargs) arguments needed			      
 
+returns 
+
+```python
+
+(0, 1.0)
+
+```
 18. complexity_score(song_to_be_scored)
 
 Returns the normalized (based on the minimum and maximum value calculated of the sample space) complexity
@@ -461,13 +528,19 @@ score of the song named 'song_to_be_scored' which is passed as a positional argu
 type of a string (str)- to the function
 			       
 i.e. 
+
 ```python
+
 complexity_score('cleaned_860~The-Beatles~Get-Back.txt') 
-print(complexity_score('cleaned_860~The-Beatles~Get-Back.txt'))
+
 ```
+
 returns 
+
 ```python
-''				      
+
+0.2				      
+
 ```
 
 19. json_creation(artists_list_, raw_filenames_list_, profanity_score_min, profanity_score_max, love_score_min, love_score_max, mood_score_min, mood_score_max, length_score_min, length_score_max, complexity_score_min, complexity_score_max)
