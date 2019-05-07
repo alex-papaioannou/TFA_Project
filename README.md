@@ -31,23 +31,24 @@ The files of the project are the following:
 
 ## Prerequisites
 
-What things you need to install the software and how to install them
+### Required modules:
 
-langdetect==1.0.7
-mstranslate==1.1
-mtranslate==1.6
-
-profanity_check==1.0.2
-requests==2.21.0
-nltk==3.4
-
-pipreqs==0.4.9
-coverage==4.5.3
-autopep8==1.4.4
-pep8==1.7.1
+langdetect==1.0.7 \n
+mstranslate==1.1 \n
+mtranslate==1.6 \n
+\n
+profanity_check==1.0.2 \n
+requests==2.21.0 \n
+nltk==3.4 \n
+\n
+pipreqs==0.4.9 \n
+coverage==4.5.3 \n
+autopep8==1.4.4 \n
+pep8==1.7.1 \n
 
 
 ```bash
+This is how you can install the required modules:
 
 pip install langdetect
 pip install mtranslate
