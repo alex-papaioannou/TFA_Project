@@ -2,7 +2,7 @@ IEOR 4501 - TOOLS FOR ANALYTICS
 ====================================
 # Final Project
 
-Copyright (c) 2019 [Papaioannou Alexandros](https://www.linkedin.com/in/apapaio/) (aap2204), Shipley Kyle (kss0416). All rights reserved.
+Copyright (c) 2019 [Papaioannou Alexandros](https://www.linkedin.com/in/apapaio/) (aap2204), Shipley Kyle (kss2170). All rights reserved.
 
 See the end of this file for further copyright and license information.
 
