@@ -18,13 +18,13 @@ See the end of this file for further copyright and license information.
 - [Required modules](#Required-modules)
 - [Environment setting](#Environment-setting)
 - [Run](#Run)
-The main code
-The unit testing code
-Usage
-Functions usage
-Proposals for enhancement
-Copyright and License Information
-Acknowledgments
+- [The source code](#The-source-code)
+- [The unit testing code](#The-unit-testing-code)
+- [Usage](#Usage)
+- [Functions usage](#Functions-usage)
+- [Proposals for enhancement](#Proposals-for-enhancement)
+- [Copyright and License Information](#Copyright-and-License-Information)
+- [Acknowledgments](#Acknowledgments)
 ## Project Description 
 ---------------------------------
 
@@ -168,7 +168,7 @@ nltk.downloader.download('stopwords')
 ## Run
 ---------------------------------
 
-### The main code
+### The source code
 ---------------------------------
 
 This is accomplished by typing in a bash terminal 
