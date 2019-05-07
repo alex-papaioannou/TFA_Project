@@ -1,7 +1,9 @@
 # IEOR 4501 - TOOLS FOR ANALYTICS
 # Final Project
+---------------------------------
 
 ## Project Description 
+---------------------------------
 
 Final Project is a Python project that is submitted as one of the requirements for the fullfillment of the Columbia University IEOR department’s course named “IEOR 4501 - TOOLS FOR ANALYTICS”. The authors of this project are:
 
@@ -9,6 +11,7 @@ Final Project is a Python project that is submitted as one of the requirements f
 2) Shipley Kyle
 
 ## Project Scope 
+---------------------------------
 
 We were given a set of text files which held music lyrics; each file held a different song’s lyrics. The scope of this project was to create a tool to categorize the songs based on their lyrics. 
 
@@ -57,6 +60,7 @@ complexity: requires high level of vocabulary to understand
 
 
 ## Getting Started
+---------------------------------
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
@@ -68,8 +72,10 @@ The files of the project are the following:
 4) README.md          , the current README file
 
 ## Prerequisites
+---------------------------------
 
 ### Required modules:
+---------------------------------
 
 langdetect==1.0.7
 
@@ -110,6 +116,7 @@ pip install pep8
 ```
 
 ### Environment setting
+---------------------------------
 
 ```python
 
@@ -135,19 +142,63 @@ import nltk.data
 nltk.downloader.download('vader_lexicon')
 nltk.downloader.download('stopwords')
 ```
+## Run
+---------------------------------
+
+### The main code
+---------------------------------
+
+This is accomplished by typing in a bash terminal 
+
+```bash
+python main.py <directory_of_the_lyrics_folder>
+```
+i.e.
+```bash
+python main.py /Users/alex/Downloads/Final_Project/Lyrics
+```
+
+### The unit testing code
+---------------------------------
+
+This is accomplished by typing in a bash terminal 
+
+```bash
+python coverage run tests.py
+```
+i.e.
+```bash
+python coverage report -m
+```
 
 ## Usage
-
+---------------------------------
 ### Functions usage
-
+---------------------------------
 1. artists_list() 
 
 Returns a list with the unique set of artists that are associated with the lyrics text 
 files 
 
+i.e. the use of that function is just 
+
+```python
+artists_list() 
+```
+
+no positional (*args) or keyword (**kwargs) arguments needed
+
 2. raw_filenames_list() 
 
 Returns a list with all the filenames of the lyrics text files of the folder named “Lyrics”
+
+i.e. the use of that function is just 
+
+```python
+raw_filenames_list() 
+```
+
+no positional (*args) or keyword (**kwargs) arguments needed
 
 
 3. artist_s_songs_list(str)  
@@ -160,14 +211,14 @@ i.e.
 
 ```python
 
-artist_s_songs_list('The Beatles') 
+artist_s_songs_list('The-Beatles') 
 
-print(artist_s_songs_list('The Beatles')) 
+print(artist_s_songs_list('The-Beatles')) 
 ```
 returns 
 ```python
 
-['860~Get Back~The Beatles.txt', '629~From Me to You~The Beatles.txt']
+['860~The-Beatles~Get-Back.txt', '629~The-Beatles~From-Me-to-You.txt']
 ```
 4. song_cleaning() 
 
@@ -196,15 +247,16 @@ i.e.
 
 ```python
 
-artist_s_cleaned_songs_list('The Beatles') 
+artist_s_cleaned_songs_list('The-Beatles') 
 
-print(artist_s_cleaned_songs_list('The Beatles')) 
+print(artist_s_cleaned_songs_list('The-Beatles')) 
 
 ```
 returns 
 
 ```python
-['cleaned_860~Get Back~The Beatles.txt', 'cleaned_629~From Me to You~The Beatles.txt']
+
+['cleaned_860~The-Beatles~Get-Back.txt', 'cleaned_629~The-Beatles~From-Me-to-You.txt']
 
 ```
 
@@ -220,8 +272,8 @@ based on the format of the given text files the following pattern was used:
 ```
 i.e. 
 ```python
-id_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt') 
-print(id_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt'))
+id_song_to_be_scored('cleaned_860~The-Beatles~Get-Back.txt') 
+print(id_song_to_be_scored('cleaned_860~The-Beatles~Get-Back.txt'))
 ```
 returns 
 ```python
@@ -238,12 +290,12 @@ based on the format of the given text files the following pattern was used:
 ```
 i.e. 
 ```python
-artist_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt') 
-print(artist_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt')) 
+artist_song_to_be_scored('cleaned_860~The-Beatles~Get-Back.txt') 
+print(artist_song_to_be_scored('cleaned_860~The-Beatles~Get-Back.txt')) 
 ```
 returns 
 ```python
-'The Beatles'
+'The-Beatles'
 ```
 
 8. title_song_to_be_scored(song_to_be_scored) 
@@ -258,12 +310,12 @@ based on the format of the given text files the following pattern was used:
 ```
 i.e. 
 ```python
-title_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt') 
-print(title_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt')) 
+title_song_to_be_scored('cleaned_860~The-Beatles~Get-Back.txt') 
+print(title_song_to_be_scored('cleaned_860~The-Beatles~Get-Back.txt')) 
 ```
 returns 
 ```python
-'Get Back'
+'Get-Back'
 ```
 
 9. profanity_score_min_max() 
@@ -285,16 +337,24 @@ Returns the normalized (based on the minimum and maximum value calculated of the
 			       
 i.e. 
 ```python
-profanity_score('cleaned_860~Get Back~The Beatles.txt') 
-print(title_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt')) returns ''				      
+profanity_score('cleaned_860~The-Beatles~Get-Back.txt') 
+print(title_song_to_be_scored('cleaned_860~The-Beatles~Get-Back.txt'))
+```
+returns 
+```python
+''				      
 ```
 
-## Contributing
+## Proposals for enhancement
+---------------------------------
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would 
-like to change.
-
+like to change. 
 Please make sure to update tests as appropriate.
 
-## License
-[Alexandros Papaioannou](https://www.linkedin.com/in/apapaio/)
-[Kyle Shipley]
+## Copyright and License Information
+---------------------------------
+
+Copyright (c) 2019 [Papaioannou Alexandros](https://www.linkedin.com/in/apapaio/), Shipley Kyle.  All rights reserved.
+
+All trademarks referenced herein are property of their respective holders.
+
