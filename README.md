@@ -3,15 +3,18 @@ IEOR 4501 - TOOLS FOR ANALYTICS
 # Final Project
 ---------------------------------
 
-Copyright (c) 2019 Papaioannou Alexandros (aap2204), Shipley Kyle (kss0416). All rights reserved.
+Copyright (c) 2019 [Papaioannou Alexandros](https://www.linkedin.com/in/apapaio/) (aap2204), Shipley Kyle (kss0416). All rights reserved.
 
 See the end of this file for further copyright and license information.
 
-# Table of Contents
+## Table of Contents
 
-- [Project Description](#ProjectDescription)
+- [Project Description](#Project Description)
+- [Project Scope](#Project Scope)
+- [Input of the program](#Input of the program)
+- [Output of the program](#Project Description)
 
-# Project Description 
+## Project Description 
 ---------------------------------
 
 Final Project is a Python project that is submitted as one of the requirements for the fullfillment of the Columbia University IEOR department’s course named “IEOR 4501 - TOOLS FOR ANALYTICS”. The authors of this project are:
@@ -19,7 +22,7 @@ Final Project is a Python project that is submitted as one of the requirements f
 1) Papaioannou Alexandros Anastasios
 2) Shipley Kyle
 
-# Project Scope 
+## Project Scope 
 ---------------------------------
 
 We were given a set of text files which held music lyrics; each file held a different song’s lyrics. The scope of this project was to create a tool to categorize the songs based on their lyrics. 
@@ -68,7 +71,7 @@ Dimensions
 1 is a very complex song
 
 
-# Getting Started
+## Getting Started
 ---------------------------------
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
@@ -80,10 +83,10 @@ The files of the project are the following:
 3) requirements.txt   , the packages that the projects requires to be installed for the code to be able to run
 4) README.md          , the current README file
 
-# Prerequisites
+## Prerequisites
 ---------------------------------
 
-# Required modules:
+## Required modules:
 ---------------------------------
 
 *langdetect==1.0.7
@@ -124,7 +127,7 @@ pip install autopep8
 pip install pep8
 ```
 
-## Environment setting
+### Environment setting
 ---------------------------------
 
 ```python
@@ -151,10 +154,10 @@ import nltk.data
 nltk.downloader.download('vader_lexicon')
 nltk.downloader.download('stopwords')
 ```
-# Run
+## Run
 ---------------------------------
 
-## The main code
+### The main code
 ---------------------------------
 
 This is accomplished by typing in a bash terminal 
@@ -167,7 +170,7 @@ i.e.
 python main.py /Users/alex/Downloads/Final_Project/Lyrics
 ```
 
-## The unit testing code
+### The unit testing code
 ---------------------------------
 
 This is accomplished by typing in a bash terminal 
@@ -180,9 +183,9 @@ i.e.
 python coverage report -m
 ```
 
-# Usage
+## Usage
 ---------------------------------
-## Functions usage
+### Functions usage
 ---------------------------------
 1. artists_list() 
 
@@ -354,20 +357,20 @@ returns
 ''				      
 ```
 
-# Proposals for enhancement
+## Proposals for enhancement
 ---------------------------------
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would 
 like to change. 
 Please make sure to update tests as appropriate.
 
-# Copyright and License Information
+## Copyright and License Information
 ---------------------------------
 
 Copyright (c) 2019 [Papaioannou Alexandros](https://www.linkedin.com/in/apapaio/), Shipley Kyle.  All rights reserved.
 
 All trademarks referenced herein are property of their respective holders.
 
-# Acknowledgments
+## Acknowledgments
 ---------------------------------
 * Prof. Paul Logston, Columbia University, Spring 2019
 * Teaching Assistant Ms. Peiying Yu, Columbia University, Spring 2019
