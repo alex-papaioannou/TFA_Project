@@ -115,28 +115,18 @@ files
 
 2. raw_filenames_list() 
 
-```
-
-```bash
-
 Returns a list with all the filenames of the lyrics text files of the folder named “Lyrics”
 
 ```
 
-```python
+```bash
 
 3. artist_s_songs_list(str)  
 
-```
-
-```bash
 
 Returns a list with all the filenames of the the lyrics text files that are associated with 
 the artist that is passed as a string (str) to the function
 
-```
-
-```python
 
 i.e. artist_s_songs_list('The Beatles') 
 
@@ -144,13 +134,11 @@ print(artist_s_songs_list('The Beatles')) returns ['860~Get Back~The Beatles.txt
 
 ```
 
-```python
+```bash
 
 4. song_cleaning() 
 
-```
 
-```bash
 a) returns a directory under the current (working) directory named "Cleaned_Songs"
 b) iterates through all the lyrics text files of the songs of all the artists of 
     the artists_list()
