@@ -18,7 +18,7 @@ The input to your command should be the path to the directory holding the song f
 ### Output of the program
 The output of your command is a JSON object (sent to standard out, StdOut) that contains a list of characterizations; one for each song. Each characterization object has the listed dimensions (keys) and a values for how well the song fits into that dimension. 
 
-# Getting Started
+## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
@@ -102,40 +102,54 @@ nltk.downloader.download('stopwords')
 
 ### Functions usage
 
-```python
+```bash
 
 1. artists_list() 
-```
 
-```bash
 Returns a list with the unique set of artists that are associated with the lyrics text 
 files 
+
 ```
 
-```python
+```bash
+
 2. raw_filenames_list() 
+
 ```
 
 ```bash
+
 Returns a list with all the filenames of the lyrics text files of the folder named “Lyrics”
+
 ```
 
 ```python
+
 3. artist_s_songs_list(str)  
+
 ```
 
 ```bash
+
 Returns a list with all the filenames of the the lyrics text files that are associated with 
 the artist that is passed as a string (str) to the function
+
 ```
+
 ```python
+
 i.e. artist_s_songs_list('The Beatles') 
 
 print(artist_s_songs_list('The Beatles')) returns ['860~Get Back~The Beatles.txt', '629~From Me to You~The Beatles.txt']
+
 ```
 
 ```python
+
 4. song_cleaning() 
+
+```
+
 ```bash
 a) returns a directory under the current (working) directory named "Cleaned_Songs"
 b) iterates through all the lyrics text files of the songs of all the artists of 
@@ -149,19 +163,30 @@ i.e. the use of that function is just song_cleaning()
 
 no positional (*args) or keyword (**kwargs) arguments needed
 ```
+
 ```python
+
 5. artist_s_cleaned_songs_list(str)  
+
 ```bash
+
 returns a list with all the filenames of the the “cleaned” lyrics text files that are associated 
 with the artist that is passed as a string (str) to the function
+
 ```
+
 ```python
+
 i.e. artist_s_cleaned_songs_list('The Beatles') 
 
 print(artist_s_cleaned_songs_list('The Beatles')) 
+
 ```
+
 ```bash
+
 returns ['cleaned_860~Get Back~The Beatles.txt', 'cleaned_629~From Me to You~The Beatles.txt']
+
 ```
 
 ```python
