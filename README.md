@@ -61,20 +61,22 @@ import requests, uuid
 
 ```python
 
-1. artists_list() 
+1. artists_list(*args) 
 
 # returns a list with the unique set of artists that are associated with the lyrics text 
 # files 
+
+#***Note that all functions with *args only use the *args when testing is preformed, this is to pass a testing directory***
 ```
 
 ```python
-2. raw_filenames_list() 
+2. raw_filenames_list(*args) 
 
 # returns a list with all the filenames of the lyrics text files of the folder named “Lyrics”
 ```
 
 ```python
-3. artist_s_songs_list(str)  
+3. artist_s_songs_list(str, *args)  
 
 # returns a list with all the filenames of the the lyrics text files that are associated with 
 # the artist that is passed as a string (str) to the function
@@ -85,7 +87,7 @@ i.e. artist_s_songs_list('The Beatles')
 ```
 
 ```python
-4. song_cleaning() 
+4. song_cleaning(*args) 
 
 # a) returns a directory under the current (working) directory named "Cleaned_Songs"
 # b) iterates through all the lyrics text files of the songs of all the artists of 
@@ -95,12 +97,10 @@ i.e. artist_s_songs_list('The Beatles')
 # d) creates a new lyrics text file named 'cleaned_<song_name.txt>' for each song 
      and it pastes the cleaned text of the lyrics in the text file 
 
-i.e. the use of that function is just song_cleaning() 
-
-# no positional (*args) or keyword (**kwargs) arguments needed
+i.e. the use of that function is just song_cleaning()
 ```
 ```python
-5. artist_s_cleaned_songs_list(str)  
+5. artist_s_cleaned_songs_list(str, *args)  
 
 # returns a list with all the filenames of the the “cleaned” lyrics text files that are associated 
 # with the artist that is passed as a string (str) to the function
@@ -112,7 +112,7 @@ i.e. artist_s_cleaned_songs_list('The Beatles')
 ```
 
 ```python
-6. id_song_to_be_scored(song_to_be_scored) 
+6. id_song_to_be_scored(song_to_be_scored, *args) 
 
 # returns the id number of the lyrics text file that is named 'song_to_be_scored' and it is passed as a 
 # positional argument -having the data type of a string (str)- to the function.
@@ -126,7 +126,7 @@ i.e. id_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt')
 ```
 
 ```python
-7. artist_song_to_be_scored(song_to_be_scored) 
+7. artist_song_to_be_scored(song_to_be_scored, *args) 
 
 # returns the name of the artist of the song named 'song_to_be_scored' which is passed as a positional 
 # argument -having the data type of a string (str)- to the function
@@ -139,7 +139,7 @@ i.e. artist_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt')
 # print(artist_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt')) returns 'The Beatles'
 ```
 ```python
-8. title_song_to_be_scored(song_to_be_scored) 
+8. title_song_to_be_scored(song_to_be_scored, *args) 
 
 # returns the title of the song named 'song_to_be_scored' which is passed as a positional argument 
 # -having the data type of a string (str)- to the function
@@ -152,7 +152,7 @@ i.e. title_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt')
 # print(title_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt')) returns 'Get Back'
 ```
 ```python
-9. profanity_score_min_max() 
+9. profanity_score_min_max(*args) 
 
 # returns the minimum and maximum value of the profanity (kids_safe) scores based on the scores of the 
 # lyrics text files we have been provided with (in the folder named “Lyrics”)
