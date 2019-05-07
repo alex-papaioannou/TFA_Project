@@ -199,7 +199,7 @@ files
 
 i.e. the use of that function is just 
 
-***All functions with *args only use these arguments to pass a testing directory path 
+***All functions with \*args only use these arguments to pass a testing directory path 
 during testing, when running tests.py***
 
 ```python
