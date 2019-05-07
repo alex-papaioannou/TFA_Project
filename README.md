@@ -9,11 +9,22 @@ See the end of this file for further copyright and license information.
 
 ## Table of Contents
 
-- [Project Description](#Project Description)
-- [Project Scope](#Project Scope)
-- [Input of the program](#Input of the program)
-- [Output of the program](#Project Description)
-
+- [Project Description](#Project-Description)
+- [Project Scope](#Project-Scope)
+- [Input of the program](#Input-of-the program)
+- [Output of the program](#Project-Description)
+- [Getting Started](#Getting-Started)
+- [Prerequisites](#Prerequisites)
+- [Required modules](#Required-modules)
+- [Environment setting](#Environment-setting)
+- [Run](#Run)
+The main code
+The unit testing code
+Usage
+Functions usage
+Proposals for enhancement
+Copyright and License Information
+Acknowledgments
 ## Project Description 
 ---------------------------------
 
@@ -86,7 +97,7 @@ The files of the project are the following:
 ## Prerequisites
 ---------------------------------
 
-## Required modules:
+## Required modules
 ---------------------------------
 
 *langdetect==1.0.7
