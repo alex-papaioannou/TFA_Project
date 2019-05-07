@@ -102,7 +102,7 @@ nltk.downloader.download('stopwords')
 
 ### Functions usage
 
-```bash
+```python
 
 1. artists_list() 
 
@@ -111,7 +111,7 @@ files
 
 ```
 
-```bash
+```python
 
 2. raw_filenames_list() 
 
@@ -119,7 +119,7 @@ Returns a list with all the filenames of the lyrics text files of the folder nam
 
 ```
 
-```bash
+```python
 
 3. artist_s_songs_list(str)  
 
@@ -128,13 +128,18 @@ Returns a list with all the filenames of the the lyrics text files that are asso
 the artist that is passed as a string (str) to the function
 
 
-i.e. artist_s_songs_list('The Beatles') 
+i.e. 
+```
+
+```bash
+
+artist_s_songs_list('The Beatles') 
 
 print(artist_s_songs_list('The Beatles')) returns ['860~Get Back~The Beatles.txt', '629~From Me to You~The Beatles.txt']
 
 ```
 
-```bash
+```python
 
 4. song_cleaning() 
 
@@ -147,8 +152,12 @@ c) opens their lyrics text files of each song, decodes the words in 'utf-8', and
 d) creates a new lyrics text file named 'cleaned_<song_name.txt>' for each song 
      and it pastes the cleaned text of the lyrics in the text file 
 
-i.e. the use of that function is just song_cleaning() 
-
+i.e. the use of that function is just 
+```
+```bash
+song_cleaning() 
+```
+```python
 no positional (*args) or keyword (**kwargs) arguments needed
 ```
 
@@ -156,7 +165,7 @@ no positional (*args) or keyword (**kwargs) arguments needed
 
 5. artist_s_cleaned_songs_list(str)  
 
-```bash
+```python
 
 returns a list with all the filenames of the the “cleaned” lyrics text files that are associated 
 with the artist that is passed as a string (str) to the function
