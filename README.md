@@ -5,7 +5,7 @@
 
 Final Project is a Python project that is submitted as one of the requirements for the fullfillment of the Columbia University IEOR department’s course named “IEOR 4501 - TOOLS FOR ANALYTICS”. The authors of this project are:
 
-1) Papaioannou Alexandros Anastasios and 
+1) Papaioannou Alexandros Anastasios
 2) Shipley Kyle
 
 ## Project Scope 
@@ -33,19 +33,27 @@ The files of the project are the following:
 
 ### Required modules:
 
-langdetect==1.0.7 \n
-mstranslate==1.1 \n
-mtranslate==1.6 \n
-\n
-profanity_check==1.0.2 \n
-requests==2.21.0 \n
-nltk==3.4 \n
-\n
-pipreqs==0.4.9 \n
-coverage==4.5.3 \n
-autopep8==1.4.4 \n
-pep8==1.7.1 \n
+langdetect==1.0.7
 
+mstranslate==1.1
+
+
+mtranslate==1.6
+
+profanity_check==1.0.2
+
+requests==2.21.0 
+
+nltk==3.4 
+
+
+pipreqs==0.4.9 
+
+coverage==4.5.3 
+
+autopep8==1.4.4 
+
+pep8==1.7.1 
 
 ```bash
 This is how you can install the required modules:
@@ -97,53 +105,63 @@ nltk.downloader.download('stopwords')
 ```python
 
 1. artists_list() 
+```
 
-# returns a list with the unique set of artists that are associated with the lyrics text 
-# files 
+```bash
+Returns a list with the unique set of artists that are associated with the lyrics text 
+files 
 ```
 
 ```python
 2. raw_filenames_list() 
+```
 
-# returns a list with all the filenames of the lyrics text files of the folder named “Lyrics”
+```bash
+Returns a list with all the filenames of the lyrics text files of the folder named “Lyrics”
 ```
 
 ```python
 3. artist_s_songs_list(str)  
+```
 
-# returns a list with all the filenames of the the lyrics text files that are associated with 
-# the artist that is passed as a string (str) to the function
-
+```bash
+Returns a list with all the filenames of the the lyrics text files that are associated with 
+the artist that is passed as a string (str) to the function
+```
+```python
 i.e. artist_s_songs_list('The Beatles') 
 
-# print(artist_s_songs_list('The Beatles')) returns ['860~Get Back~The Beatles.txt', '629~From Me to You~The Beatles.txt']
+print(artist_s_songs_list('The Beatles')) returns ['860~Get Back~The Beatles.txt', '629~From Me to You~The Beatles.txt']
 ```
 
 ```python
 4. song_cleaning() 
-
-# a) returns a directory under the current (working) directory named "Cleaned_Songs"
-# b) iterates through all the lyrics text files of the songs of all the artists of 
-#    the artists_list()
-# c) opens their lyrics text files of each song, decodes the words in 'utf-8', and cleans 
-#    them up by removing special characters and empty lines [\(\[],.*?[\)\]]
-# d) creates a new lyrics text file named 'cleaned_<song_name.txt>' for each song 
+```bash
+a) returns a directory under the current (working) directory named "Cleaned_Songs"
+b) iterates through all the lyrics text files of the songs of all the artists of 
+    the artists_list()
+c) opens their lyrics text files of each song, decodes the words in 'utf-8', and cleans 
+    them up by removing special characters and empty lines [\(\[],.*?[\)\]]
+d) creates a new lyrics text file named 'cleaned_<song_name.txt>' for each song 
      and it pastes the cleaned text of the lyrics in the text file 
 
 i.e. the use of that function is just song_cleaning() 
 
-# no positional (*args) or keyword (**kwargs) arguments needed
+no positional (*args) or keyword (**kwargs) arguments needed
 ```
 ```python
 5. artist_s_cleaned_songs_list(str)  
-
-# returns a list with all the filenames of the the “cleaned” lyrics text files that are associated 
-# with the artist that is passed as a string (str) to the function
-
+```bash
+returns a list with all the filenames of the the “cleaned” lyrics text files that are associated 
+with the artist that is passed as a string (str) to the function
+```
+```python
 i.e. artist_s_cleaned_songs_list('The Beatles') 
 
-# print(artist_s_cleaned_songs_list('The Beatles')) returns ['cleaned_860~Get Back~The Beatles.txt', 
-# 'cleaned_629~From Me to You~The Beatles.txt']
+print(artist_s_cleaned_songs_list('The Beatles')) 
+```
+```bash
+returns ['cleaned_860~Get Back~The Beatles.txt', 'cleaned_629~From Me to You~The Beatles.txt']
 ```
 
 ```python
