@@ -119,7 +119,6 @@ Returns a list with all the filenames of the the lyrics text files that are asso
 the artist that is passed as a string (str) to the function
 
 i.e. 
-```
 
 ```python
 
@@ -184,7 +183,6 @@ based on the format of the given text files the following pattern was used:
 i.e. 
 ```python
 id_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt') 
-```
 print(id_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt'))
 ```
 returns 
@@ -204,7 +202,7 @@ i.e.
 ```python
 artist_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt') 
 print(artist_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt')) 
-
+```
 returns 
 ```python
 'The Beatles'
@@ -224,7 +222,7 @@ i.e.
 ```python
 title_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt') 
 print(title_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt')) 
-
+```
 returns 
 ```python
 'Get Back'
@@ -235,21 +233,22 @@ returns
 Returns the minimum and maximum value of the profanity (kids_safe) scores based on the scores of the 
 lyrics text files we have been provided with (in the folder named “Lyrics”)
 			       
-i.e. the use of that function is just profanity_score_min_max() 
-
-# no positional (*args) or keyword (**kwargs) arguments needed			      
-```
-
+i.e. the use of that function is just 
 ```python
+profanity_score_min_max() 
+```
+no positional (*args) or keyword (**kwargs) arguments needed			      
+
 10. profanity_score(song_to_be_scored)
 
-# returns the normalized (based on the minimum and maximum value calculated of the sample space) profanity 
-# (kids_safe) score of the song named 'song_to_be_scored' which is passed as a positional argument 
-# -having the data type of a string (str)- to the function
+Returns the normalized (based on the minimum and maximum value calculated of the sample space) profanity 
+(kids_safe) score of the song named 'song_to_be_scored' which is passed as a positional argument 
+-having the data type of a string (str)- to the function
 			       
-i.e. profanity_score('cleaned_860~Get Back~The Beatles.txt') 
-
-# print(title_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt')) returns ''				      
+i.e. 
+```python
+profanity_score('cleaned_860~Get Back~The Beatles.txt') 
+print(title_song_to_be_scored('cleaned_860~Get Back~The Beatles.txt')) returns ''				      
 ```
 
 ## Contributing
