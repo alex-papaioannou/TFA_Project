@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/apapaioannou92/TFA_Project/badge.svg?branch=master)](https://coveralls.io/github/apapaioannou92/TFA_Project?branch=master)
+
 IEOR 4501 - TOOLS FOR ANALYTICS
 ====================================
 # Final Project
