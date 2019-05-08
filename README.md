@@ -1,4 +1,6 @@
-![AppVeyor](https://travis-ci.org/apapaioannou92/TFA_Project.svg?branch=master)    [![Coverage Status](https://coveralls.io/repos/github/apapaioannou92/TFA_Project/badge.svg?branch=master)(https://coveralls.io/repos/github/apapaioannou92/TFA_Project/)] [![Coverage Status] <?xml version="1.0" encoding="UTF-8"?>
+![AppVeyor](https://travis-ci.org/apapaioannou92/TFA_Project.svg?branch=master)    [![Coverage Status](https://coveralls.io/repos/github/apapaioannou92/TFA_Project/badge.svg?branch=master)(https://coveralls.io/repos/github/apapaioannou92/TFA_Project)] 
+
+[![Coverage Status] <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="99" height="20">
     <linearGradient id="b" x2="0" y2="100%">
         <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
