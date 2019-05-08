@@ -1,4 +1,4 @@
-![AppVeyor](https://travis-ci.org/apapaioannou92/TFA_Project.svg?branch=master)    ![Coverage Status](https://coveralls.io/repos/github/apapaioannou92/TFA_Project/badge.svg?branch=master)] 
+![AppVeyor](https://travis-ci.org/apapaioannou92/TFA_Project.svg?branch=master)    ![Coverage Status](https://coveralls.io/repos/github/apapaioannou92/TFA_Project/badge.svg?branch=master)
 
 
 IEOR 4501 - TOOLS FOR ANALYTICS
