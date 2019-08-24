@@ -3,7 +3,7 @@ coverage==4.5.3
 langdetect==1.0.7
 mstranslate==1.1
 mtranslate==1.6
-nltk==3.4
+nltk==3.4.5
 pep8==1.7.1
 pipreqs==0.4.9
 profanity-check==1.0.2
